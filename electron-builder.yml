@@ -1,0 +1,52 @@
+appId: com.zhumo.reader
+productName: ZhuMo
+directories:
+  buildResources: build
+# 允许清单：只打包运行所需文件（比否定清单更不易漏带/多带）。
+# node_modules 生产依赖（@electron-toolkit/utils）由 electron-builder 依据
+# package.json dependencies 自动收集，无需在此列出。
+files:
+  - out/**
+  - package.json
+  - resources/**
+  - THIRD-PARTY_NOTICES.md
+  # 演示书不进发行包（约 1.5MB）；4175 静态预览与浏览器验证伺服 out/ 目录，不受影响
+  - '!out/renderer/demo/**'
+asarUnpack:
+  - resources/**
+# 文件关联（T20）：双击 .md / .markdown 或右键「打开方式」直达朱墨。
+# NSIS 按用户安装（perMachine: false）时注册表写入 HKCU\Software\Classes，
+# 无需管理员权限。icon 复用 resources/icon.png 单源（构建时自动转 ico）。
+# 「设为默认」受 Windows UserChoice 保护——程序不能强设默认，详见 README。
+fileAssociations:
+  - ext: md
+    name: Markdown 文档
+    description: 用朱墨阅读
+    icon: resources/icon.png
+    role: Editor
+  - ext: markdown
+    name: Markdown 文档
+    description: 用朱墨阅读
+    icon: resources/icon.png
+    role: Editor
+win:
+  executableName: ZhuMo
+  # 图标单源：与 src/main/index.ts 的 ?asset 引用同源（resources/icon.png）
+  icon: resources/icon.png
+  # zip target 无专属配置段，其产物名继承自这里（zhumo-x.y.z-win-x64.zip）
+  artifactName: ${name}-${version}-${os}-${arch}.${ext}
+  target:
+    - nsis
+    - portable
+    - zip
+nsis:
+  artifactName: ${name}-${version}-setup.${ext}
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  perMachine: false
+  shortcutName: 朱墨
+  uninstallDisplayName: 朱墨 ZhuMo
+  createDesktopShortcut: always
+portable:
+  artifactName: ${name}-${version}-portable.${ext}
+npmRebuild: false

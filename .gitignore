@@ -1,0 +1,35 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+dist-electron
+out
+
+# 过程资产（验证/冒烟脚本、截图、本地伺服）
+.perf/
+.smoke/
+.e2e/
+.serve.mjs
+e2e-*.png
+.e2e-probe.png
+
+# Logs
+*.log*
+logs
+
+# Local / editor
+*.local
+.DS_Store
+.eslintcache
+*.tsbuildinfo
+
+# 本地分发包（安装包/便携版体积大，不入库）
+share/
+
+# 本地备份
+backups/
+
+# Environment
+.env
+.env.*

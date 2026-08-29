@@ -1,0 +1,12 @@
+out
+dist
+pnpm-lock.yaml
+LICENSE.md
+LICENSE
+THIRD-PARTY_NOTICES.md
+package-lock.json
+tsconfig.json
+tsconfig.*.json
+# 测试样例与演示书：解析器输入数据，保持原始字节不被重排
+fixtures
+src/renderer/public/demo

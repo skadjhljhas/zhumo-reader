@@ -1,0 +1,247 @@
+/**
+ * 朱墨 ZhuMo —— 正文中文精排（命脉）。
+ *
+ * 适用对象：ReaderView 内 v-html 渲染出的章节 HTML（.section-body）。
+ * 原则：思源宋体正文、两端对齐、标点挤压、中西文自动间距、
+ * 段落风格双模式（纸书传统 indent / 现代 spacing），全部经 CSS 变量实时可调。
+ * 铁律：任何注释类文本不得出现 italic（见 notes.css 的强制 normal）。
+ */
+
+/* 正文列：版心 = 每行字数 × 1em，居中对称留白；
+   字号/行距/字数变化时版心自动跟随。 */
+.section-body {
+  max-width: calc(var(--reader-width) * 1em);
+  margin: 0 auto;
+  font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  font-size: var(--reader-font-size);
+  line-height: var(--reader-line-height);
+  font-weight: 400;
+  color: var(--text);
+  overflow-wrap: break-word;
+  /* 中文排版三件套：严格断行 + 中西/中数自动间距 + 标点挤压 */
+  line-break: strict;
+  text-autospace: ideograph-alpha ideograph-numeric;
+  text-spacing-trim: space-all;
+  /* Chromium 尚不支持 hanging-punctuation，留待未来 */
+}
+
+/* ---- 段落 ---- */
+.section-body p {
+  margin: 0;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+/* indent（纸书传统）：段首 2em 缩进、无段距 */
+:root[data-paragraph-style='indent'] .section-body p {
+  text-indent: 2em;
+}
+
+/* spacing（现代屏读）：段间留白、首行不缩进 */
+:root[data-paragraph-style='spacing'] .section-body p {
+  text-indent: 0;
+  margin: 0 0 0.85em;
+}
+:root[data-paragraph-style='spacing'] .section-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- 标题阶梯：H1 1.5em / H2 1.25em / H3 1.1em，加粗不缩进 ---- */
+.section-body h1,
+.section-body h2,
+.section-body h3,
+.section-body h4 {
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: left;
+  text-wrap: balance;
+  color: var(--text);
+}
+.section-body h1 {
+  font-size: 1.5em;
+  letter-spacing: 0.04em;
+  margin: 0 0 1.1em;
+  padding-bottom: 0.55em;
+  border-bottom: 1px solid var(--line-strong);
+}
+.section-body h2 {
+  font-size: 1.25em;
+  letter-spacing: 0.03em;
+  margin: 2.2em 0 0.9em;
+}
+.section-body h3 {
+  font-size: 1.1em;
+  margin: 1.8em 0 0.7em;
+}
+.section-body h4 {
+  font-size: 1em;
+  margin: 1.5em 0 0.6em;
+}
+/* 章节第一个标题（章首）不带上边距 */
+.section-body > h1:first-child,
+.section-body > h2:first-child,
+.section-body > h3:first-child {
+  margin-top: 0;
+}
+
+/* ---- 强调与引文：用字重与色彩，不用斜体 ---- */
+.section-body strong {
+  font-weight: 700;
+}
+.section-body em,
+.section-body cite {
+  font-style: normal;
+}
+.section-body em {
+  /* 中文强调：着重号优先，退化为加粗同色 */
+  text-emphasis: filled dot;
+  text-emphasis-position: under;
+}
+.section-body blockquote {
+  margin: 1.1em 0;
+  padding: 0.1em 0 0.1em 1.1em;
+  border-left: 2px solid var(--quote-border);
+  color: var(--text-2);
+}
+.section-body blockquote p {
+  text-indent: 0;
+}
+.section-body a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+.section-body a:hover {
+  border-bottom-color: var(--accent);
+}
+.section-body mark {
+  background: var(--mark-bg);
+  color: inherit;
+  padding: 0 0.1em;
+  border-radius: 2px;
+}
+
+/* ---- 代码 ---- */
+.section-body code {
+  font-family: ui-monospace, 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-size: 0.86em;
+  background: var(--code-bg);
+  border-radius: 4px;
+  padding: 0.12em 0.4em;
+}
+.section-body pre {
+  margin: 1.1em 0;
+  padding: 0.9em 1.1em;
+  background: var(--code-bg);
+  border-radius: 6px;
+  overflow-x: auto;
+  line-height: 1.7;
+}
+.section-body pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.85em;
+}
+
+/* ---- 列表 / 分隔线 / 表格 ---- */
+.section-body ul,
+.section-body ol {
+  margin: 0.6em 0;
+  padding-left: 1.8em;
+}
+.section-body li {
+  margin: 0.25em 0;
+}
+.section-body li p {
+  text-indent: 0;
+}
+.section-body hr {
+  border: none;
+  margin: 2.4em auto;
+  width: 5em;
+  border-top: 1px solid var(--line-strong);
+}
+.section-body table {
+  border-collapse: collapse;
+  margin: 1.2em auto;
+  font-size: 0.92em;
+  max-width: 100%;
+}
+.section-body th,
+.section-body td {
+  border: 1px solid var(--line-strong);
+  padding: 0.4em 0.9em;
+}
+.section-body th {
+  background: var(--code-bg);
+  font-weight: 700;
+}
+.section-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* ---- KaTeX：块级居中舒展、行内基线自然 ---- */
+.section-body .katex-display,
+.zmu-note-body .katex-display {
+  margin: 1.15em 0;
+  padding: 0.15em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-align: center;
+}
+.section-body .katex,
+.zmu-note-body .katex {
+  font-size: 1.04em;
+  line-height: 1.2;
+  /* 行内公式不允许断行：短公式整体换行，避免式子腰斩 */
+  white-space: nowrap;
+}
+/* KaTeX 内部字体样式（数学斜体）属数学排版语义，与注释文本 italic 红线无涉 */
+
+/* ---- 章节容器与占位骨架 ---- */
+.section-frame {
+  /* 下内边距充当章间距：避免 margin 塌陷，前缀和可精确预测 */
+  padding: 0 clamp(24px, 6vw, 72px) 56px;
+}
+.section-placeholder {
+  max-width: calc(var(--reader-width) * 1em);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+  padding-top: 0.4em;
+}
+.section-placeholder .sk-line {
+  height: 1em;
+  border-radius: 3px;
+  background: var(--skeleton);
+}
+.section-placeholder .sk-line:last-child {
+  width: 62%;
+}
+.section-placeholder .sk-title {
+  height: 1.5em;
+  width: 34%;
+  border-radius: 3px;
+  background: var(--skeleton);
+  margin-bottom: 0.5em;
+}
+
+/* 锚点闪烁定位（点击侧栏卡片 → 正文锚点短暂高亮） */
+@keyframes zmu-anchor-flash {
+  0% {
+    box-shadow: 0 0 0 0 var(--accent-soft);
+    background: var(--accent);
+    color: var(--accent-contrast);
+  }
+  100% {
+    box-shadow: 0 0 0 14px transparent;
+  }
+}
+/* T23：视觉承载移到内层 .zmu-ref-mark（sup 为零高原子盒） */
+.zmu-ref.is-flash .zmu-ref-mark {
+  animation: zmu-anchor-flash 1.1s var(--ease-out) 2;
+}

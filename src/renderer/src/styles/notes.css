@@ -1,0 +1,357 @@
+/**
+ * 朱墨 ZhuMo —— 注释系统样式。
+ *
+ * 层级视觉三要素：左侧竖线（越深越细越浅）+ 缩进（每层 12px）+ 字号阶梯
+ * （0.95 / 0.87 / 0.80 / 0.75em）。注释正文一律霞鹜文楷、font-style 恒定
+ * normal（红线：注释类文本严禁倾斜）。类型以徽标色相区分。
+ */
+
+/* ============ 正文锚点 sup ============ */
+/* T23：sup 改原子内联零高盒（不贡献行盒，与旧 line-height:0 同效），
+   内容为作者标号（displayMark）；超长裁切与全部视觉由内层 .zmu-ref-mark
+   承载——零高盒上背景不可见，字形从零高盒向上绘制保持上标观感 */
+.zmu-ref {
+  font-family: 'Noto Serif SC', serif;
+  font-style: normal;
+  font-size: 0.68em;
+  font-weight: 700;
+  display: inline-block;
+  height: 0;
+  line-height: 0;
+  vertical-align: super;
+  /* T25：阻断段落首行缩进继承（indent 风格 .section-body p 的 text-indent:2em
+     会连计算值带进本内联块，药丸内左空一块、文字被推右）；置 0 后内层
+     .zmu-ref-mark 继承 0，一处覆盖正文与注内锚点 */
+  text-indent: 0;
+  color: var(--accent);
+  cursor: pointer;
+  user-select: none;
+}
+.zmu-ref .zmu-ref-mark {
+  display: inline-block;
+  max-width: 8em; /* 超长标号裁切，全文在 sup 的 title（T23）；T24 放宽 6em→8em，与卡头一致 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1;
+  padding: 0.05em 0.18em;
+  margin: 0 0.04em;
+  border-radius: 4px;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+.zmu-ref[data-level='2'] {
+  opacity: 0.88;
+}
+.zmu-ref[data-level='3'] {
+  opacity: 0.78;
+}
+.zmu-ref[data-level='4'],
+.zmu-ref[data-level='5'],
+.zmu-ref[data-level='6'] {
+  opacity: 0.7;
+}
+.zmu-ref:hover .zmu-ref-mark {
+  background: var(--accent-soft);
+}
+.zmu-ref.is-active {
+  opacity: 1;
+}
+.zmu-ref.is-active .zmu-ref-mark {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+/* ============ 注释卡片 ============ */
+.note-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 14px 10px 16px;
+  cursor: pointer;
+  scroll-margin: 14px 0;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+.note-card:hover {
+  background: var(--bg-elevated);
+  border-color: var(--line-strong);
+}
+.note-card.is-active {
+  background: var(--bg-elevated);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-pop);
+}
+.note-card.is-focused {
+  border-color: var(--accent);
+}
+
+/* 层级竖线：宽度 3 → 1.5px，透明度随层级递减，颜色 = 类型色 */
+.note-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: var(--bar-w, 3px);
+  border-radius: 0 2px 2px 0;
+  background: var(--note-color, var(--note-plain));
+  opacity: var(--bar-opacity, 1);
+}
+.note-card.level-1 {
+  --bar-w: 3px;
+  --bar-opacity: 1;
+}
+.note-card.level-2 {
+  --bar-w: 2.25px;
+  --bar-opacity: 0.78;
+}
+.note-card.level-3 {
+  --bar-w: 1.75px;
+  --bar-opacity: 0.6;
+}
+.note-card.level-4,
+.note-card.level-5,
+.note-card.level-6 {
+  --bar-w: 1.5px;
+  --bar-opacity: 0.48;
+}
+/* 层级缩进：每层 12px */
+.note-card.level-2 {
+  margin-left: 12px;
+  width: calc(100% - 12px);
+}
+.note-card.level-3 {
+  margin-left: 24px;
+  width: calc(100% - 24px);
+}
+.note-card.level-4,
+.note-card.level-5,
+.note-card.level-6 {
+  margin-left: 36px;
+  width: calc(100% - 36px);
+}
+
+/* 字号阶梯 */
+.note-card.level-1 .zmu-note-body {
+  font-size: var(--note-l1-size);
+}
+.note-card.level-2 .zmu-note-body {
+  font-size: var(--note-l2-size);
+}
+.note-card.level-3 .zmu-note-body {
+  font-size: var(--note-l3-size);
+}
+.note-card.level-4 .zmu-note-body,
+.note-card.level-5 .zmu-note-body,
+.note-card.level-6 .zmu-note-body {
+  font-size: var(--note-l4-size);
+}
+
+/* 类型色 */
+.note-card.type-translator {
+  --note-color: var(--note-translator);
+}
+.note-card.type-editor {
+  --note-color: var(--note-editor);
+}
+.note-card.type-textual {
+  --note-color: var(--note-textual);
+}
+.note-card.type-original {
+  --note-color: var(--note-original);
+}
+.note-card.type-commentary {
+  --note-color: var(--note-commentary);
+}
+.note-card.type-plain {
+  --note-color: var(--note-plain);
+}
+
+/* 卡头：类型徽标 + 作者标号 + 状态图标（T24：灰字标签退役，前缀语义由徽标承载） */
+.note-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  min-height: 18px;
+}
+/* 作者标号（T23）：与正文锚点 sup 同源，卡头显眼展示；
+   超长 max-width 8em + ellipsis，全文在 title */
+.note-mark {
+  flex: none;
+  max-width: 8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 700;
+  /* T25：卡头标号与正文药丸同源，稳妥阻断任何缩进上下文的继承 */
+  text-indent: 0;
+  color: var(--accent);
+  line-height: 1.4;
+}
+/* 徽标 = 作者实际用词（typeLabel），无类型词不渲染；长词二道防线：
+   max-width 8em + ellipsis + nowrap，全文在 title 属性（解析层已限 ≤12 字符） */
+.note-type-badge {
+  flex: none;
+  display: inline-block;
+  max-width: 8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--note-color, var(--note-plain));
+}
+.note-type-badge::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.note-state-icon {
+  margin-left: auto;
+  flex: none;
+  display: inline-flex;
+  color: var(--accent);
+}
+
+/* ---- 引用处（T23 引用地图）：小字条目列表，取代原 ×N 徽标 ---- */
+.note-spots {
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px dashed var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.note-spots-title {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--text-3);
+}
+/* >6 条时列表内部滚动（148px ≈ 6 行） */
+.note-spots-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 148px;
+  overflow-y: auto;
+}
+.note-spot {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  font-family: inherit;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--text-2);
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  padding: 1px 6px;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+.note-spot:hover {
+  background: var(--hover-bg);
+  color: var(--text);
+}
+.note-spot-type {
+  margin-left: 5px;
+  font-size: 10px;
+  color: var(--text-3);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 0 4px;
+}
+/* 活跃条目（当前阅读处）：accent 着色 + 软底，深浅主题经变量自适应 */
+.note-spot.is-active {
+  color: var(--accent);
+  background: var(--accent-soft);
+  font-weight: 600;
+}
+
+/* 注释正文：霞鹜文楷，红线 —— 恒定直立，禁止倾斜 */
+.zmu-note-body,
+.zmu-note-body * {
+  font-style: normal !important;
+}
+.zmu-note-body {
+  font-family: 'LXGW WenKai', 'Noto Serif SC', serif;
+  line-height: 1.75;
+  color: var(--text);
+  overflow-wrap: break-word;
+  line-break: strict;
+  text-autospace: ideograph-alpha ideograph-numeric;
+}
+.zmu-note-body p {
+  margin: 0;
+}
+.zmu-note-body p + p {
+  margin-top: 0.5em;
+}
+.zmu-note-body code {
+  font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  font-size: 0.86em;
+  background: var(--code-bg);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+.zmu-note-body .zmu-ref {
+  font-size: 0.78em;
+}
+
+/* 缺失定义态 */
+.note-card.is-missing {
+  border-style: dashed;
+  background: transparent;
+}
+.note-card.is-missing .zmu-note-body {
+  color: var(--text-3);
+}
+
+/* 纯孤儿（无正文锚且无父注，T11/T23 后仅剩此情形禁用）：信息卡而非跳转
+   入口 —— 降交互提示（不抬升 hover），内容仍完整呈现；注内 sup 引用仍可点。
+   纯嵌套注（有父注）已升级为可点击定位父注卡，不再走此态 */
+.note-card.is-noanchor {
+  cursor: default;
+}
+.note-card.is-noanchor:hover {
+  background: var(--card-bg);
+  border-color: var(--line);
+}
+
+/* 卡片闪烁（正文锚点点击 → 侧栏定位反馈） */
+@keyframes zmu-card-flash {
+  0% {
+    box-shadow: 0 0 0 0 var(--accent-soft);
+    border-color: var(--accent);
+  }
+  100% {
+    box-shadow: 0 0 0 12px transparent;
+  }
+}
+.note-card.is-flash {
+  animation: zmu-card-flash 1s var(--ease-out) 2;
+}

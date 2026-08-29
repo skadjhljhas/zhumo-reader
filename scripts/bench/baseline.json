@@ -1,0 +1,25 @@
+{
+  "capturedAt": "2026-08-26T05:57:24.223Z",
+  "source": "scripts/bench/perf.mjs 实测取中位（T8 收官基线刷新：三轮独立无头 Edge 会话，每轮 D7 内部 3 轮取中位后再取三轮中位）",
+  "book": "stress-50w",
+  "environment": "采集于 2026-08-26，Windows 本机；Edge 无头 1440x900，--disable-sync --disable-extensions 干净临时 profile（防账号同步扩展污染指标）；4175 静态预览伺服 electron-vite 构建产物（out/renderer），生产模式 + ?mock=1 预览桩；50.2 万字 / 3000 注 / 51 章压测书。注：首轮堆内存偶现 246MB（GC 未稳定），三轮中位 81.5MB 为有效基线。",
+  "metrics": {
+    "firstPaint": {
+      "medWorkerMs": 575.1,
+      "medFirstMs": 877.6
+    },
+    "scroll": {
+      "frameCount": 901,
+      "avgMs": 18.1,
+      "p95Ms": 28.9,
+      "maxMs": 78.5,
+      "jankyRatio": 0.0322,
+      "coverageRatio": 0.511
+    },
+    "memory": {
+      "heapMB": 81.5,
+      "domNodes": 31943,
+      "noteCards": 3000
+    }
+  }
+}

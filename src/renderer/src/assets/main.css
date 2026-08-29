@@ -1,0 +1,119 @@
+/**
+ * 朱墨 ZhuMo —— 基础层：盒模型、根布局、字体栈、滚动条、焦点、选区。
+ * 颜色一律走 themes.css 变量。
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Serif SC', 'LXGW WenKai', 'Songti SC', serif;
+  background: var(--bg, #f7f4ee);
+  color: var(--text, #2a2620);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden; /* 滚动由各容器自理，工具栏/状态栏固定 */
+}
+
+::selection {
+  background: var(--selection);
+}
+
+/* ---- 滚动条：细、半透明、hover 显现 ---- */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+*:hover {
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
+}
+*:hover::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover) !important;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* ---- 焦点可见 ---- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+button {
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+input,
+select {
+  font-family: inherit;
+  color: inherit;
+}
+
+/* 图标按钮（工具栏/卡片通用） */
+.zm-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 7px;
+  color: var(--text-2);
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+.zm-icon-btn:hover {
+  background: var(--hover-bg);
+  color: var(--text);
+}
+.zm-icon-btn.is-on {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.zm-icon-btn:active {
+  transform: scale(0.94);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "startedAt": "2026-08-26T06:01:42.333Z",
+  "base": "http://localhost:4175",
+  "book": "edge-cases",
+  "firstPaint": {
+    "runs": [
+      {
+        "run": 1,
+        "workerDone": 464.19999998807907,
+        "firstSectionVisible": 608.5,
+        "readingAt": 609.0999999642372,
+        "autoClicks": 1,
+        "stats": {
+          "title": "22 条 · 最深 4 层",
+          "statsBar": "3321 字注释 22最深 4 层",
+          "sections": 1,
+          "mounted": 1,
+          "noteCards": 22,
+          "warnings": "8 条解析提示",
+          "scrollHeight": 4396
+        },
+        "consoleErrors": [],
+        "pageExceptions": []
+      },
+      {
+        "run": 2,
+        "workerDone": 468.19999998807907,
+        "firstSectionVisible": 567.3999999761581,
+        "readingAt": 567.8999999761581,
+        "autoClicks": 1,
+        "stats": {
+          "title": "22 条 · 最深 4 层",
+          "statsBar": "3321 字注释 22最深 4 层",
+          "sections": 1,
+          "mounted": 1,
+          "noteCards": 22,
+          "warnings": "8 条解析提示",
+          "scrollHeight": 4396
+        },
+        "consoleErrors": [],
+        "pageExceptions": []
+      },
+      {
+        "run": 3,
+        "workerDone": 163.29999995231628,
+        "firstSectionVisible": 268.7999999523163,
+        "readingAt": 269.2999999523163,
+        "autoClicks": 1,
+        "stats": {
+          "title": "22 条 · 最深 4 层",
+          "statsBar": "3321 字注释 22最深 4 层",
+          "sections": 1,
+          "mounted": 1,
+          "noteCards": 22,
+          "warnings": "8 条解析提示",
+          "scrollHeight": 4396
+        },
+        "consoleErrors": [],
+        "pageExceptions": []
+      }
+    ],
+    "medWorker": 464.19999998807907,
+    "medFirst": 567.3999999761581
+  },
+  "scroll": {
+    "rafDriven": true,
+    "rafProbeCount": 122,
+    "frameCount": 203,
+    "elapsed": 3384,
+    "avg": 16.666995074067795,
+    "p95": 17.5,
+    "max": 17.899999976158142,
+    "janky": 0,
+    "jankyRatio": 0,
+    "coveredPx": 2030,
+    "totalScrollHeight": 4396,
+    "coverageRatio": 0.553,
+    "finalRatio": 0.553
+  },
+  "memory": {
+    "dom": {
+      "heapMB": 17.3,
+      "heapLimitMB": 4192,
+      "domNodes": 963,
+      "sections": 1,
+      "mountedSections": 1,
+      "noteCards": 22,
+      "anchors": 22,
+      "katex": 8
+    },
+    "cdp": {
+      "JSHeapUsedSizeMB": 11.2,
+      "Nodes": 5327,
+      "Documents": 20,
+      "JSEventListeners": 249,
+      "RecalcStyleCount": 0,
+      "LayoutCount": 0
+    }
+  },
+  "edgeCases": {
+    "reading": true,
+    "warningsText": "8 条解析提示",
+    "notesMeta": "22 条 · 最深 4 层",
+    "statsBar": "3321 字注释 22最深 4 层",
+    "orphanGroup": true,
+    "orphanCount": "2",
+    "missingCards": 2,
+    "cycleIcons": 2,
+    "noteCards": 22,
+    "sections": 1,
+    "warningKinds": [
+      "重复定义",
+      "缺失定义",
+      "缺失定义",
+      "循环引用",
+      "层级截断",
+      "层级截断",
+      "未引用",
+      "未引用"
+    ],
+    "consoleErrors": [],
+    "pageExceptions": []
+  },
+  "finishedAt": "2026-08-26T06:02:02.256Z",
+  "consoleInfos": [
+    "info: [zhumo] 未检测到 Electron 桥接，已注入浏览器预览桩（api-mock）",
+    "info: [zhumo] 未检测到 Electron 桥接，已注入浏览器预览桩（api-mock）",
+    "info: [zhumo-mock] 演示书就绪：边界用例集（4278 字符，fetch 耗时 2ms）",
+    "info: [zhumo] 未检测到 Electron 桥接，已注入浏览器预览桩（api-mock）",
+    "info: [zhumo] 未检测到 Electron 桥接，已注入浏览器预览桩（api-mock）",
+    "info: [zhumo-mock] 演示书就绪：边界用例集（4278 字符，fetch 耗时 2ms）",
+    "info: [zhumo] 未检测到 Electron 桥接，已注入浏览器预览桩（api-mock）",
+    "info: [zhumo] 未检测到 Electron 桥接，已注入浏览器预览桩（api-mock）",
+    "info: [zhumo-mock] 演示书就绪：边界用例集（4278 字符，fetch 耗时 2ms）",
+    "info: [zhumo] 未检测到 Electron 桥接，已注入浏览器预览桩（api-mock）",
+    "info: [zhumo] 未检测到 Electron 桥接，已注入浏览器预览桩（api-mock）",
+    "info: [zhumo-mock] 演示书就绪：边界用例集（4278 字符，fetch 耗时 2ms）"
+  ]
+}
