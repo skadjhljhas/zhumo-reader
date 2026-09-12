@@ -74,7 +74,9 @@ export async function assertProgramsClosed(
   const canonical = await Promise.all(roots.map((root) => realpath(root)))
   for (const program of await query()) {
     if (!program.executable) {
-      if (/^(zhumo.*|electron)\.exe$/i.test(program.name))
+      // 只把「读不到路径的主程序」当作拦截对象；安装器/选择器等 zhumo-* 辅助进程
+      // 的被杀僵尸条目（路径不可读）不应阻断构建或更新（2.0.0 事故）。
+      if (/^(zhumo(-ai)?|electron)\.exe$/i.test(program.name))
         throw Error('无法读取一个朱墨相关进程的位置，停止更新。')
       continue
     }

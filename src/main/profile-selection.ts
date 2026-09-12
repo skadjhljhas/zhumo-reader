@@ -188,8 +188,9 @@ export function chooseNativeProfile(
   options: readonly ProfileOption[]
 ): number | undefined {
   if (process.platform !== 'win32') throw Error('多套阅读资料的首次选择目前支持 Windows。')
+  // 注意:不能设 windowsHide——ProfileChooser 是 WinForms 图形对话框,
+  // 隐藏其窗口会使 ShowDialog 对着隐形窗无限等待,导致安装器假死(2.0.0 事故)。
   const result = spawnSync(helper, [], {
-    windowsHide: true,
     shell: false,
     encoding: 'utf8',
     maxBuffer: 65536,

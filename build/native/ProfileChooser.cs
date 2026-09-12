@@ -25,6 +25,8 @@ internal static class ProfileChooser {
                 form.Font = new Font("Microsoft YaHei UI", 10);
                 form.BackColor = Color.FromArgb(245, 248, 249);
                 form.MaximizeBox = false;
+                form.TopMost = true;
+                form.ShowInTaskbar = true;
                 var layout = new TableLayoutPanel { Dock = DockStyle.Fill, Padding = new Padding(24), RowCount = 4, ColumnCount = 1 };
                 layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
                 layout.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
