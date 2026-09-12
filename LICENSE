@@ -1,21 +1,97 @@
-MIT License
+朱墨源码可用许可 第 1.0 版
+ZhuMo Source-Available License, Version 1.0 (ZM-SAL-1.0)
 
-Copyright (c) 2026 ZhuMo Contributors
+Copyright (c) 2026 ZhuMo Contributors (skadjhljhas)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+本许可授予下列有限权利;未明确授予的权利均由著作权人保留。
+This License grants the limited rights set out below; all rights not expressly
+granted are reserved by the Copyright Holder.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+----------------------------------------------------------------------
+0. 定义 / Definitions
+----------------------------------------------------------------------
+- "本软件" / "the Software":朱墨 ZhuMo 阅读器的源码、文档与随附资源。
+- "衍生作品" / "Derivative Work":在本软件基础上修改、扩展,或与其结合
+  而成的作品。
+- "商业使用" / "Commercial Use":将本软件或衍生作品作为**收费**产品或
+  服务的一部分,进行销售、许可、托管运营,或以其他方式直接或间接获取
+  收入。
+  **不包括**(即下列情形不属于商业使用):个人使用、学习与研究、非营利
+  使用,以及企业或组织的**内部自用**——前提是不对外提供含本软件的收费
+  产品或服务。
+- "免费开源分发" / "Free Open-Source Distribution":以不收取费用的方式
+  公开完整源码,并允许他人依本许可再分发。
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+----------------------------------------------------------------------
+1. 非商业使用免费 / Free Non-Commercial Use
+----------------------------------------------------------------------
+你可以免费地复制、修改、编译、运行本软件,用于个人、学习、研究、非
+营利目的,或组织内部自用(不对外销售含本软件的产品或服务)。
+
+----------------------------------------------------------------------
+2. 免费开源衍生豁免 / Free Open-Source Derivative Exception
+----------------------------------------------------------------------
+你可以制作衍生作品并**免费开源分发**,但须同时满足:
+(a) 衍生作品**整体**采用本许可(ZM-SAL-1.0)(相同方式共享 / share-alike);
+(b) 向任何获取者**免费**提供,并公开完整源码;
+(c) 在显著位置(如 README、关于页、启动页)署名:
+    "本作品使用了朱墨 ZhuMo(<本仓库 URL>),依 ZM-SAL-1.0 授权",
+    并保留本许可文本与著作权声明。
+
+----------------------------------------------------------------------
+3. 商业使用须商业授权 / Commercial Use Requires a Commercial License
+----------------------------------------------------------------------
+任何**商业使用**(见第 0 条定义)必须**事先**取得著作权人的**书面商业
+授权**并支付约定费用。未经授权的商业使用不获本许可授予,构成著作权
+侵权,著作权人保留追责权利。
+企业或组织内部自用(不对外提供收费产品或服务)不属于商业使用,无需
+付费。
+
+----------------------------------------------------------------------
+4. 无担保与责任限制 / No Warranty; Limitation of Liability
+----------------------------------------------------------------------
+本软件按"现状"提供,不作任何明示或默示担保,包括但不限于适销性、特
+定用途适用性与不侵权。在法律允许的最大范围内,著作权人不对因使用或
+无法使用本软件造成的任何损失承担责任。
+
+----------------------------------------------------------------------
+5. 终止 / Termination
+----------------------------------------------------------------------
+你违反本许可任何条款的,本许可授予自动终止;著作权人可另行书面恢复。
+终止不影响他人在终止前依本许可已获得的权利。
+
+----------------------------------------------------------------------
+6. 第三方组件 / Third-Party Components
+----------------------------------------------------------------------
+本软件包含第三方组件与字体,其各自许可证见 THIRD-PARTY_NOTICES.md 与
+docs/licenses/。本许可不授予超出相应第三方许可范围的权利;使用第三方
+组件时你仍须遵守其各自许可证。
+
+----------------------------------------------------------------------
+7. 许可版本 / License Versioning
+----------------------------------------------------------------------
+著作权人可发布本许可的后续版本。你分发本软件或衍生作品时,可选择依
+本版本或著作权人发布的后续版本授权。
+
+----------------------------------------------------------------------
+8. 商业授权洽谈 / Commercial Licensing Contact
+----------------------------------------------------------------------
+商业授权请通过本仓库的 Issues 或仓库所有者的公开联系方式洽谈。
+
+----------------------------------------------------------------------
+English Summary (for convenience; the Chinese text above prevails)
+----------------------------------------------------------------------
+1. Free Non-Commercial Use: you may copy, modify, build and run the Software
+   free of charge for personal, educational, research, non-commercial, or
+   internal organizational use (not sold externally).
+2. Free Open-Source Derivative Exception: you may create and distribute
+   Derivative Works free of charge as open source, provided that (a) the
+   Derivative Work as a whole is licensed under this same license
+   (share-alike), (b) it is provided free of charge with complete source,
+   and (c) it prominently credits "Uses ZhuMo ZhuMo (<repo URL>), licensed
+   under ZM-SAL-1.0" and retains this license and copyright notices.
+3. Commercial Use Requires a Paid Commercial License: any Commercial Use
+   (selling, licensing, or hosting the Software or Derivative Works as part
+   of a paid product or service) requires a prior written commercial license
+   and fee. Internal use that is not sold externally is not Commercial Use.
+4. No warranty; liability limited to the maximum extent permitted by law.

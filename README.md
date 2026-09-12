@@ -106,7 +106,7 @@ npm.cmd run build:release -- --output ../zhumo-release-candidate
 
 ## 许可证与致谢
 
-项目代码以 [MIT License](LICENSE) 授权。随附字体与第三方组件保留各自许可证，详见 [第三方声明](THIRD-PARTY_NOTICES.md) 和 docs/licenses。
+项目代码以 [朱墨源码可用许可 v1.0（ZM-SAL-1.0）](LICENSE) 授权：**个人 / 非营利 / 企业内部自用免费**；**基于它做免费且开源的衍生项目免费**（须沿用同一协议并显著署名“使用了朱墨 ZhuMo”）；**任何商业使用（销售含本代码的产品或服务）须事先取得书面商业授权并付费**。随附字体与第三方组件保留各自许可证，详见 [第三方声明](THIRD-PARTY_NOTICES.md) 和 docs/licenses。
 
 感谢 Electron、Vue、CodeMirror、markdown-it、KaTeX、MathJax、Mermaid，以及思源宋体、霞鹜文楷等项目。中文排版也受 [赫蹏](https://github.com/sivan/heti) 的启发。
 
@@ -114,4 +114,4 @@ npm.cmd run build:release -- --output ../zhumo-release-candidate
 
 ZhuMo is a local Markdown reader and editor for close reading with nested annotations. Version 2.0 adds configurable AI explanations, streaming text and glow colors, evolving reading light, imported fonts, theme-preserving PDF export, and reflowable EPUB 2/3 reading. AI services are configured by the user; no API key is bundled.
 
-This branch is preparing 2.0. The Windows rc.4 candidate has passed local reader, installation, and interrupted-recovery checks; the public 2.0 release has not been created. See the linked documentation for supported formats and current limits. The code is MIT licensed; bundled components and fonts retain their own licenses.
+This branch is preparing 2.0. The Windows 2.0.0 candidate has passed local reader, installation, and interrupted-recovery checks. See the linked documentation for supported formats and current limits. The code is licensed under the ZhuMo Source-Available License v1.0 (ZM-SAL-1.0): free for personal, non-commercial and internal organizational use, and free for free open-source derivative works (share-alike, with attribution); any commercial use (selling products or services that incorporate the code) requires a prior paid commercial license. Bundled components and fonts retain their own licenses.

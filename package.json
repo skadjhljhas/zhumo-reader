@@ -5,6 +5,7 @@
   "description": "朱墨 2.0 — 本地 Markdown 阅读与编辑空间",
   "main": "./out/main/index.js",
   "author": "ZhuMo Contributors",
+  "license": "LicenseRef-ZhuMo-SAL-1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/skadjhljhas/zhumo-reader"
