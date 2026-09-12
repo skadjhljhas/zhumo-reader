@@ -1,0 +1,14 @@
+extends: ./electron-builder.yml
+appId: com.zhumo.reader.v2
+productName: ZhuMo 2
+directories:
+  output: ../朱墨2.0发行准备/候选04
+extraMetadata:
+  name: zhumo-v2
+  version: 2.0.0
+  zhumoChannel: stable
+win:
+  executableName: ZhuMo
+  # Produce a directory first; the reviewed managed installer is built separately.
+  target:
+    - dir

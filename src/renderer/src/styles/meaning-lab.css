@@ -1,0 +1,317 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Noto Serif SC', serif;
+  color: #253a4b;
+  background: #edf4f8;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+  background: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 1px solid #7397b1;
+  outline-offset: 5px;
+}
+.meaning-lab {
+  --text-2: #597181;
+  --line: #809cac30;
+  --accent: #345f7d;
+  --text: #253a4b;
+  min-height: 100vh;
+  padding: 28px max(36px, calc((100vw - 1340px) / 2));
+  position: relative;
+  isolation: isolate;
+}
+.meaning-lab::before {
+  content: '';
+  position: fixed;
+  inset: -12%;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 5% 2%, #b2def78c, transparent 48%),
+    linear-gradient(120deg, transparent 25%, #ffffffdf 43%, #d7e8f450 46%, transparent 54%),
+    radial-gradient(ellipse at 85% 98%, #d2cef75c, transparent 54%);
+  filter: blur(15px);
+  animation: meaning-atmosphere 90s ease-in-out infinite alternate;
+}
+@keyframes meaning-atmosphere {
+  to {
+    transform: translate(3%, -2%) rotate(1deg);
+  }
+}
+.meaning-lab-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text-2);
+}
+.meaning-wordmark {
+  font-size: 19px;
+  letter-spacing: 0.2em;
+  color: var(--text);
+}
+.meaning-lab-actions {
+  display: flex;
+  gap: 22px;
+  margin-left: auto;
+  letter-spacing: 0;
+  font-family: system-ui, sans-serif;
+}
+.meaning-lab-actions button {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+.meaning-introduction {
+  margin: 60px 0 32px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  column-gap: 100px;
+  align-items: end;
+}
+.meaning-kicker {
+  grid-column: 1/-1;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--text-2);
+  margin-bottom: 14px;
+}
+.meaning-introduction h1 {
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+.meaning-introduction > p:last-child {
+  font-size: 14px;
+  line-height: 2.1;
+  max-width: 390px;
+  color: var(--text-2);
+  margin-bottom: 5px;
+}
+.meaning-tabs {
+  display: flex;
+  gap: 34px;
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0 0;
+  font-size: 13px;
+}
+.meaning-tabs button {
+  padding: 14px 0;
+  position: relative;
+  color: var(--text-2);
+}
+.meaning-tabs button[aria-current] {
+  color: var(--text);
+}
+.meaning-tabs button[aria-current]::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #4a83a8, transparent);
+  box-shadow: 0 1px 9px #69b5e9;
+}
+.meaning-question {
+  display: flex;
+  justify-content: space-between;
+  gap: 70px;
+  margin: 36px 0 28px;
+  align-items: baseline;
+}
+.meaning-question h2 {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  flex-shrink: 0;
+}
+.meaning-question p {
+  font:
+    12px/2 system-ui,
+    sans-serif;
+  color: var(--text-2);
+  max-width: 550px;
+  margin: 0;
+}
+.meaning-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+.meaning-case-label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--text-2);
+  display: flex;
+  gap: 18px;
+  margin: 6px 0 0;
+}
+.meaning-case-label span {
+  font: 10px system-ui;
+  opacity: 0.6;
+  padding-top: 4px;
+}
+.meaning-passage {
+  position: relative;
+  isolation: isolate;
+  padding: 27px 4px 32px;
+}
+.meaning-passage-text {
+  position: relative;
+  z-index: 1;
+  font-size: 26px;
+  line-height: 2.45;
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  letter-spacing: 0.012em;
+}
+.meaning-passage .syntax-preview-veil {
+  z-index: 0;
+}
+.meaning-formula {
+  font: 12px/1.9 system-ui;
+  letter-spacing: 0.07em;
+  color: var(--accent);
+  margin: 12px 0 8px;
+}
+.meaning-consequence {
+  font-size: 12px;
+  line-height: 2.05;
+  color: var(--text-2);
+  max-width: 470px;
+  margin: 8px 0 28px;
+}
+.meaning-reading-choice {
+  display: flex;
+  gap: 24px;
+  margin: 8px 0 15px;
+  font-size: 12px;
+}
+.meaning-reading-choice button {
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+}
+.meaning-reading-choice button[aria-pressed='true'] {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.meaning-lab .syntax-meaning-key {
+  margin: 35px 0 24px;
+  font-family: system-ui, sans-serif;
+  gap: 12px 26px;
+}
+.meaning-lab-footer {
+  border-top: 1px solid var(--line);
+  padding-top: 17px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  font:
+    11px/1.9 system-ui,
+    sans-serif;
+  color: var(--text-2);
+}
+.meaning-lab-footer a {
+  font-size: 12px;
+  color: var(--text);
+}
+.meaning-research-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font: 10px/2 system-ui;
+  color: var(--text-2);
+  opacity: 0.7;
+  margin-top: 14px;
+}
+.meaning-research-links a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.meaning-lab.is-dark {
+  background: #152b47;
+  color: #e8edf3;
+  --text: #e8edf3;
+  --text-2: #b0c3d4;
+  --line: #adceea30;
+  --accent: #ded2a2;
+}
+.meaning-lab.is-dark::before {
+  background:
+    radial-gradient(ellipse at 0 0, #8cb2d344, transparent 48%),
+    linear-gradient(120deg, transparent 20%, #73a4cb36 43%, transparent 53%),
+    radial-gradient(ellipse at 80% 100%, #9392c53a, transparent 60%);
+}
+@media (max-width: 850px) {
+  .meaning-lab {
+    padding: 22px;
+  }
+  .meaning-introduction {
+    column-gap: 32px;
+  }
+  .meaning-question {
+    display: block;
+  }
+  .meaning-question p {
+    margin-top: 14px;
+  }
+  .meaning-pair {
+    gap: 28px;
+  }
+  .meaning-passage-text {
+    font-size: 22px;
+  }
+}
+@media (max-width: 600px) {
+  .meaning-introduction {
+    grid-template-columns: 1fr;
+    margin-top: 36px;
+  }
+  .meaning-introduction > p:last-child {
+    margin-top: 22px;
+  }
+  .meaning-pair {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .meaning-tabs {
+    gap: 22px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .meaning-lab-header > span {
+    display: none;
+  }
+  .meaning-lab-actions {
+    gap: 18px;
+  }
+  .meaning-lab-footer {
+    display: block;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .meaning-lab::before {
+    animation: none;
+  }
+}

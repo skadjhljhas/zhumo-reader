@@ -1,0 +1,41 @@
+/* Fade the whole note, including its text, controls, border, shadow and tether. */
+.note-peek {
+  --peek-note-ink: #85425e;
+  opacity: var(--peek-opacity, 0.88);
+}
+/* The underlying manuscript must remain readable through the faded note. */
+.note-peek .peek-shell,
+.note-peek .peek-reading .note-card {
+  backdrop-filter: none !important;
+}
+
+/* Distinct note ink helps separate overlapping prose without restoring opacity. */
+:root[data-skin='chaosheng'] .note-peek,
+:root[data-skin='astral'] .note-peek,
+:root[data-skin='cosmos'] .note-peek {
+  --peek-note-ink: #f6d0a0;
+}
+:root[data-skin='nocturne'] .note-peek {
+  --peek-note-ink: #efbccc;
+}
+:root[data-skin='manifesto'] .note-peek {
+  --peek-note-ink: #403b8f;
+}
+:root[data-skin='botanical'] .note-peek {
+  --peek-note-ink: #754267;
+}
+:root[data-skin='prism'] .note-peek {
+  --peek-note-ink: #985537;
+}
+.note-peek.is-transparent {
+  --text: var(--peek-note-ink);
+  --text-2: var(--peek-note-ink);
+  --text-3: var(--peek-note-ink);
+  color: var(--peek-note-ink);
+}
+.note-peek.is-transparent .zmu-note-body,
+.note-peek.is-transparent
+  .zmu-note-body
+  :is(p, li, h1, h2, h3, h4, h5, h6, strong, em, blockquote, td, th, a, code, pre) {
+  color: var(--peek-note-ink) !important;
+}

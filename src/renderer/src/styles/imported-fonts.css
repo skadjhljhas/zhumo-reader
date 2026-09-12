@@ -1,0 +1,27 @@
+:root[data-custom-uifont] body {
+  font-family: var(--ui-font);
+}
+:root[data-custom-uifont]
+  :is(
+    .studio-toolbar,
+    .studio-rail,
+    .toc-drawer,
+    .settings-panel,
+    .theme-dialog,
+    .ai-settings,
+    .ai-panel,
+    .statusbar
+  ) {
+  font-family: var(--ui-font);
+}
+:root[data-custom-bodyfont]
+  :is(.section-body, .document-overture h1, .preview-reading, .reading-selection-quote) {
+  font-family: var(--font-body);
+}
+:root[data-custom-bodyfont] .section-body :is(h1, h2, h3, h4, h5, h6, blockquote) {
+  font-family: var(--font-body);
+}
+:root[data-custom-notefont]
+  :is(.zmu-note-body, .note-peek, .note-peek-body, .user-note-input, .ai-result-text) {
+  font-family: var(--font-note);
+}

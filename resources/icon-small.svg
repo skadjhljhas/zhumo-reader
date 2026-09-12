@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="朱墨（小尺寸）">
+  <defs>
+    <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#0e2140"/><stop offset="1" stop-color="#1e4d76"/></linearGradient>
+    <linearGradient id="column" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe8c8" stop-opacity=".98"/><stop offset=".45" stop-color="#dcebff" stop-opacity=".62"/><stop offset="1" stop-color="#bcd6ff" stop-opacity="0"/></linearGradient>
+    <filter id="soft" x="-60%" y="-20%" width="220%" height="140%"><feGaussianBlur stdDeviation="9"/></filter>
+    <clipPath id="tile"><rect x="16" y="16" width="480" height="480" rx="124"/></clipPath>
+  </defs>
+  <rect x="16" y="16" width="480" height="480" rx="124" fill="url(#ink)"/>
+  <g clip-path="url(#tile)">
+    <path d="M208 236 L304 236 L332 512 L180 512 Z" fill="url(#column)" filter="url(#soft)"/>
+  </g>
+  <rect x="192" y="96" width="128" height="128" rx="22" fill="#ec5a44"/>
+  <rect x="21" y="21" width="470" height="470" rx="119" fill="none" stroke="#a9c6ea" stroke-opacity=".55" stroke-width="10"/>
+</svg>

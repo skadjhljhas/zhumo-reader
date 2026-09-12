@@ -1,0 +1,384 @@
+/* 潮生 · 沧海。The ocean is carried by light and scale, with DOM ink in moon-white. */
+:root[data-skin='chaosheng'] {
+  --bg: #142c48;
+  --paper: #203c5980;
+  --bg-elevated: #19334e;
+  --sidebar-bg: #0c1b30bb;
+  --drawer-bg: #0b192cbb;
+  --card-bg: #152b454c;
+  --text: #dce9f5;
+  --text-2: #d2e2f3;
+  --text-3: #d0e1f4;
+  --accent: #cbe1f9;
+  --accent-strong: #dfedff;
+  --accent-soft: #85b9f11a;
+  --accent-contrast: #0b1b2f;
+  --line: #749ccc30;
+  --line-strong: #86afd663;
+  --hover-bg: #8bbcff0e;
+  --active-bg: #88bfff19;
+  --quote-border: #aeb8ce;
+  --code-bg: #10243c;
+  --mark-bg: #8cafdf38;
+  --selection: #86b4ec42;
+  --scrollbar-thumb: #9cbce13d;
+  --scrollbar-thumb-hover: #accdec66;
+  --shadow-soft: 0 0 45px #06111b25;
+  --shadow-pop: 0 18px 70px #01081799;
+  --note-translator: #aacbed;
+  --note-editor: #c5b493;
+  --note-textual: #9daee0;
+  --note-commentary: #b5aed3;
+  --note-original: #93b8e3;
+  --note-plain: #a2b3cd;
+  color-scheme: dark;
+}
+:root[data-skin='chaosheng'] .chaosheng-atmosphere {
+  background:
+    radial-gradient(ellipse at 90% -20%, #4e76a1, transparent 70%),
+    linear-gradient(170deg, #152b46, #214568);
+}
+:root[data-skin='chaosheng'] .tidal-vignette {
+  background: linear-gradient(90deg, #2949650c, transparent 12%, transparent 87%, #203a5910);
+  box-shadow: none;
+}
+:root[data-skin='chaosheng'] .studio-frame :is(.studio-rail, .studio-toolbar, .statusbar) {
+  background: #41699416;
+  border-color: #7192be22;
+  color: var(--text-2);
+  box-shadow: none;
+}
+:root[data-skin='chaosheng'] .studio-frame :is(.toc-drawer, .notes-sidebar) {
+  background: linear-gradient(180deg, #5a7da014, #18355320);
+  border-color: #7096c32c;
+  box-shadow: none;
+  backdrop-filter: blur(12px);
+}
+:root[data-skin='chaosheng'] .studio-frame :is(.reader-column, .section-body) {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+:root[data-skin='chaosheng'] .rail-brand {
+  background: linear-gradient(135deg, #284969, #122940);
+  border-color: #a2bed354;
+  color: #e3edf8;
+  box-shadow: 0 0 20px #7398c214;
+}
+:root[data-skin='chaosheng']
+  .studio-frame
+  :is(.section-body, .zmu-note-body)
+  :is(h1, h2, h3, h4, strong),
+:root[data-skin='chaosheng'] .studio-frame :is(.welcome-copy h1, .document-overture h1) {
+  color: #e2edfb;
+  text-shadow: none;
+}
+:root[data-skin='chaosheng'] .section-body p {
+  text-shadow: none;
+}
+:root[data-skin='chaosheng'] .section-body h2 {
+  border-bottom-color: #8bacc52e;
+}
+:root[data-skin='chaosheng'] .section-body h2::before {
+  color: #a8bbd5;
+}
+:root[data-skin='chaosheng'] .section-body blockquote {
+  background: linear-gradient(90deg, #91afd00b, transparent);
+  border-left-color: #b0bec86e;
+  box-shadow: none;
+}
+:root[data-skin='chaosheng'] .overture-rule {
+  background: linear-gradient(90deg, #a9bfd1a6, #b6a78465, transparent);
+}
+:root[data-skin='chaosheng']
+  .studio-frame
+  :is(
+    .overture-eyebrow,
+    .overture-folio,
+    .notes-meta,
+    .note-mark,
+    .welcome-art-note,
+    .welcome-footer,
+    .welcome-copy .eyebrow
+  ) {
+  color: var(--text-3);
+}
+:root[data-skin='chaosheng'] .little-seal {
+  color: #c2d7ea;
+  border-color: #9fb6d254;
+}
+:root[data-skin='chaosheng'] .toc-item.is-current {
+  background: linear-gradient(95deg, #89b0e51a, transparent);
+  border-left-color: #a8bdd6;
+  box-shadow: none;
+}
+:root[data-skin='chaosheng'] .studio-frame .note-card,
+:root[data-skin='chaosheng']
+  .studio-frame
+  .note-card:is(.level-2, .level-3, .level-4, .level-5, .level-6) {
+  background: linear-gradient(110deg, #7195be0c, #192e4312);
+  border-left-color: #89a7c454;
+  box-shadow: none;
+}
+:root[data-skin='chaosheng'] .studio-frame .note-card:is(.is-reading, .is-focused) {
+  border-left-color: #c5d8ef;
+  background: linear-gradient(110deg, #819fc416, transparent);
+  box-shadow: none;
+}
+:root[data-skin='chaosheng'] .zmu-ref {
+  --accent: #b5cff1;
+  --accent-contrast: #0a1d32;
+  --accent-soft: #719ac92b;
+  --ref-ink: #d0e4fa;
+  --ref-paper: #152c48;
+  --ref-frame-shadow: 0 1px 0 #92add94d;
+}
+:root[data-skin='chaosheng']
+  :is(
+    .atlas-dialog,
+    .search-dialog,
+    .panorama-dialog,
+    .formula-dialog,
+    .diagram-dialog,
+    .comparison-dialog,
+    .tidal-memory-dialog
+  ) {
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 100% 0%, #779fd81c, transparent 65%),
+    linear-gradient(135deg, #1b3354ed, #26466ceb);
+  backdrop-filter: blur(36px);
+  border-color: #9ab6d64d;
+  box-shadow: 0 15px 80px #00091c99;
+}
+:root[data-skin='chaosheng'] .peek-shell {
+  --tide-sheet-tone: #10233a;
+  background:
+    radial-gradient(ellipse at 95% 4%, #7aa1d315, transparent 66%),
+    linear-gradient(130deg, #1b3552, var(--tide-sheet-tone));
+  border-color: #819cbf48;
+  box-shadow: 0 10px 75px #020819b3;
+}
+:root[data-skin='chaosheng'] .peek-shell[data-note-level='2'] {
+  --tide-sheet-tone: #142c48;
+}
+:root[data-skin='chaosheng']
+  .peek-shell:is(
+    [data-note-level='3'],
+    [data-note-level='4'],
+    [data-note-level='5'],
+    [data-note-level='6']
+  ) {
+  --tide-sheet-tone: #1b3454;
+}
+:root[data-skin='chaosheng'] .peek-shell::before {
+  background: radial-gradient(ellipse at 92% 8%, #8bb7e525, transparent 52%);
+}
+:root[data-skin='chaosheng'] .peek-shell::after {
+  background: radial-gradient(ellipse at 4% 90%, #91a6d51f, transparent 52%);
+}
+:root[data-skin='chaosheng'] .peek-reading:focus-visible {
+  box-shadow: inset 2px 0 0 #b2c9e775;
+}
+:root[data-skin='chaosheng'] :is(.editor-workspace, .source-editor, .draft-preview, .note-writer) {
+  background: #17324bd9;
+  color: var(--text);
+}
+:root[data-skin='chaosheng'] .welcome-lower {
+  background: linear-gradient(130deg, #6584ac0c, #131e310f);
+  border-color: #7195c42b;
+  box-shadow: none;
+  border-radius: 4px;
+}
+:root[data-skin='chaosheng'] .studio-primary {
+  background: linear-gradient(125deg, #aac3dc, #789bbf);
+  color: #091c30;
+  border-color: #c5d9ed52;
+  box-shadow: 0 0 25px #91afd417;
+}
+.theme-mini.chaosheng {
+  background:
+    radial-gradient(ellipse at 83% -5%, #344b73, transparent 65%),
+    linear-gradient(160deg, #060f21, #12355a);
+}
+.theme-mini.chaosheng::after {
+  background: linear-gradient(
+    176deg,
+    transparent 30%,
+    #84a9d344 42%,
+    transparent 53%,
+    #6786b632 65%,
+    transparent 75%
+  );
+  filter: blur(4px);
+}
+.theme-mini.chaosheng .mini-glyph {
+  color: #cedff3a1;
+  text-shadow: none;
+}
+:root[data-skin='chaosheng'] :is(.search-context, .search-track) {
+  background: linear-gradient(110deg, #122942c7, #192d4266);
+  border-color: #819abb42;
+}
+:root[data-skin='chaosheng'] .search-row.active {
+  background: #829ec21a;
+  border-left-color: #adc8e8;
+  box-shadow: none;
+}
+:root[data-skin='chaosheng'] .search-context-text mark {
+  color: #e4eef9;
+  background: linear-gradient(transparent 65%, #819bbb50 65%);
+}
+:root[data-skin='chaosheng'] .tidal-cursor :is(i, b) {
+  background: radial-gradient(ellipse, #ccdef073, #809dd821 48%, transparent 72%);
+  box-shadow: 0 0 15px #8badcf16;
+}
+:root[data-skin='chaosheng'] .tidal-nib {
+  background: #c5d9ee;
+  border-color: #edf1f8;
+}
+:root[data-skin='chaosheng'] .tidal-nib[data-mode='text'] {
+  background: #a7bfdc;
+}
+:root[data-skin='chaosheng'] .tidal-nib[data-mode='text']::before,
+:root[data-skin='chaosheng'] .tidal-nib[data-mode='text']::after {
+  background: #c1d0e3;
+}
+:root[data-skin='chaosheng'] .tidal-glint {
+  background: linear-gradient(90deg, transparent, #9bbcdc 15%, #c6c5bd 65%, transparent);
+  box-shadow: 0 2px 8px #b8cce84d;
+}
+:root[data-skin='chaosheng'] .tidal-trace {
+  background: #adc9ea66;
+  box-shadow: 0 0 9px #b9cef880;
+}
+:root[data-skin='chaosheng'] .tidal-tether path {
+  stroke: #adc7e0ae;
+  filter: drop-shadow(0 0 4px #91b0da55);
+}
+:root[data-skin='chaosheng'] .tidal-echo-action {
+  color: #c0d4e9;
+  background: #12283def;
+  border-color: #8da4c377;
+  box-shadow: 0 0 24px #7297c01a;
+}
+:root[data-skin='chaosheng'] .tidal-echo-action > span {
+  color: #c6c3b2;
+}
+:root[data-skin='chaosheng'] .tidal-echo-action:hover {
+  color: #e4eef9;
+  border-color: #aec4df;
+}
+:root[data-skin='chaosheng']::highlight(chaosheng-dwell) {
+  color: #eef5ff;
+  text-shadow:
+    0.5px 0 #a9c0ea,
+    -0.5px 0 #b8becd;
+}
+:root[data-skin='chaosheng']::highlight(chaosheng-memory) {
+  text-decoration-color: #9caec65e;
+}
+
+/* The return-to-reading surfaces share the same sea and legible lunar ink. */
+:root[data-skin='chaosheng']
+  :is(.tidal-memory-rail, .tidal-memory-head, .tidal-memory-footer, .tidal-memory-index) {
+  border-color: #83a1c638;
+}
+:root[data-skin='chaosheng']
+  :is(.tidal-memory-rail, .tidal-place, .tidal-memory-empty, .tidal-memory-footer button) {
+  color: var(--text-2);
+}
+:root[data-skin='chaosheng']
+  :is(
+    .tidal-memory-rail > p,
+    .tidal-memory-heading > small,
+    .tidal-memory-heading > b,
+    .tidal-memory-head > div > span,
+    .tidal-memory-head p,
+    .tidal-chart-caption,
+    .tidal-place-title,
+    .tidal-place small,
+    .tidal-place-kicker,
+    .tidal-place-note,
+    .tidal-memory-footer,
+    .tidal-afterlight-rule
+  ) {
+  color: var(--text-3);
+}
+:root[data-skin='chaosheng'] :is(.tidal-memory-head, .tidal-memory-index, .tidal-place-reading) {
+  background: linear-gradient(130deg, #31577b20, #1c385826);
+}
+:root[data-skin='chaosheng'] .tidal-place.active {
+  background: #7d9fc020;
+  border-left-color: #b8cbe2;
+}
+:root[data-skin='chaosheng'] .tidal-place-context {
+  border-left-color: #a5bcd4;
+  color: var(--text);
+  text-shadow: none;
+}
+:root[data-skin='chaosheng'] .tidal-place-context mark {
+  color: #e6effb;
+  background: linear-gradient(transparent 70%, #8fb1d443 70%);
+  text-decoration-color: #aebbd2;
+}
+:root[data-skin='chaosheng'] .tidal-memory-words button {
+  color: var(--text-2);
+  background: #8dadc815;
+  border-color: #94abca45;
+}
+:root[data-skin='chaosheng'] .tidal-memory-empty > span {
+  color: #b4c5df;
+}
+:root[data-skin='chaosheng'] .tidal-memory-footer input {
+  accent-color: #a1bcdc;
+}
+:root[data-skin='chaosheng'] .tidal-memory-error {
+  color: #e4b8ae;
+}
+:root[data-skin='chaosheng'] .tidal-afterlight-rule i {
+  background: linear-gradient(90deg, transparent, #9ebcdea6);
+}
+:root[data-skin='chaosheng'] .trace-axis {
+  fill: #9bb4d2;
+}
+:root[data-skin='chaosheng'] :is(.trace-coordinate, .trace-empty-line) {
+  stroke: #8faacc38;
+}
+:root[data-skin='chaosheng'] .trace-journey-glow {
+  stroke: #9dbcec33;
+}
+:root[data-skin='chaosheng'] .trace-journey {
+  stroke: #97b5db;
+}
+:root[data-skin='chaosheng'] .trace-stop-halo {
+  fill: #aebfda2e;
+}
+:root[data-skin='chaosheng'] .trace-stop-core {
+  fill: #182e4a;
+  stroke: #afc9e8;
+}
+:root[data-skin='chaosheng'] .trace-stop.recent .trace-stop-core {
+  fill: #a8bbd7;
+}
+:root[data-skin='chaosheng'] .trace-stop:is(.selected, :focus-visible) .trace-stop-core {
+  fill: #d4e1f2;
+  stroke: #bdb9a6;
+}
+:root[data-skin='chaosheng'] .trace-stop:is(:hover, :focus-visible) .trace-stop-halo {
+  fill: #b1c5e565;
+}
+:root[data-skin='chaosheng'] :is(.tidal-memory-dialog, .tidal-memory-rail) button:focus-visible,
+:root[data-skin='chaosheng'] .tidal-echo-action:focus-visible {
+  outline-color: #a5c1e1;
+}
+@media (max-width: 1119px) {
+  :root[data-skin='chaosheng'] .studio-frame .toc-drawer {
+    background: #0d1d31f5;
+  }
+}
+@media (max-width: 820px) {
+  :root[data-skin='chaosheng'] .studio-frame .notes-sidebar {
+    background: #0d1d31f5;
+  }
+}

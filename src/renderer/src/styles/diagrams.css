@@ -1,0 +1,510 @@
+.diagram-layout-scratch {
+  position: fixed;
+  left: -20000px;
+  top: 0;
+  width: 1600px;
+  visibility: hidden;
+  pointer-events: none;
+}
+.zmu-diagram {
+  --diagram-height: 254px;
+  position: relative;
+  margin: 24px 0;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  box-shadow:
+    inset 0 1px 0 #ffffff26,
+    0 8px 24px #00000006;
+  text-align: left;
+  line-height: 1.5;
+}
+.note-card .zmu-diagram {
+  --diagram-height: 186px;
+  margin: 16px 0;
+}
+.zmu-diagram > figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 40px;
+  padding: 5px 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-2);
+  font: 11px/1.5 var(--ui-font);
+}
+.zmu-diagram > figcaption > div {
+  display: flex;
+  gap: 4px;
+}
+.zmu-diagram > figcaption button {
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--text-2);
+  padding: 4px 7px;
+  font: 11px/1.5 var(--ui-font);
+  cursor: pointer;
+}
+.zmu-diagram > figcaption button:hover,
+.zmu-diagram > figcaption button[aria-expanded='true'] {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.diagram-kind {
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+.zmu-diagram > .diagram-canvas {
+  display: grid;
+  place-items: center;
+  height: var(--diagram-height);
+  padding: 18px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: radial-gradient(ellipse at 50% 100%, var(--accent-soft), transparent 70%);
+}
+.zmu-diagram > .diagram-canvas svg,
+.diagram-map-image > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none !important;
+}
+.zmu-diagram > .diagram-source {
+  box-sizing: border-box;
+  height: var(--diagram-height);
+  margin: 0;
+  padding: 18px;
+  overflow: auto;
+  border: 0;
+  border-radius: 0;
+  background: var(--code-bg);
+  color: var(--text);
+  white-space: pre;
+  font:
+    12px/1.75 Consolas,
+    'Microsoft YaHei',
+    monospace;
+}
+.zmu-diagram > .diagram-source code {
+  font: inherit;
+  padding: 0;
+  background: transparent;
+}
+.zmu-diagram > [hidden] {
+  display: none !important;
+}
+.zmu-diagram > .diagram-status {
+  margin: 0;
+  padding: 8px 12px;
+  border-top: 1px solid var(--line);
+  color: var(--text-2);
+  font: 11px/1.6 var(--ui-font);
+}
+.zmu-diagram > .diagram-status:empty {
+  display: none;
+}
+.diagram-wait {
+  color: var(--text-3);
+  font: 12px/1.6 var(--ui-font);
+}
+.zmu-diagram :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -3px;
+}
+.diagram-dialog {
+  box-sizing: border-box;
+  width: min(1280px, calc(100vw - 56px));
+  height: min(840px, calc(100vh - 56px));
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: max(12px, var(--radius));
+  background: var(--paper);
+  color: var(--text);
+  box-shadow: 0 36px 120px #00000050;
+  font-family: var(--ui-font);
+}
+.diagram-dialog[open] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto 23px;
+}
+.diagram-dialog::backdrop {
+  background: #06122077;
+  backdrop-filter: blur(12px);
+}
+.diagram-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 28px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.diagram-head > div:first-child {
+  min-width: 0;
+}
+.diagram-head > div:first-child > span {
+  display: block;
+  max-width: 660px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-2);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+.diagram-head h2 {
+  margin: 6px 0 0;
+  font: 500 24px/1.3 var(--display-font);
+  letter-spacing: 0.08em;
+}
+.diagram-head h2 small {
+  margin-left: 12px;
+  font: 11px/1.5 var(--ui-font);
+  letter-spacing: 0.12em;
+  color: var(--text-3);
+}
+.diagram-head > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.diagram-source-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-2);
+  font: 12px var(--ui-font);
+  cursor: pointer;
+}
+.diagram-source-toggle:hover,
+.diagram-source-toggle[aria-pressed='true'] {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.diagram-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 0;
+}
+.diagram-workspace.with-source {
+  grid-template-columns: minmax(0, 1fr) 300px;
+}
+.diagram-stage {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-width: 0;
+  min-height: 0;
+}
+.diagram-viewport {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: radial-gradient(ellipse at 40% 20%, var(--accent-soft), transparent 65%);
+}
+.diagram-viewport:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: -6px;
+}
+.diagram-plane {
+  position: relative;
+  min-width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+.diagram-enlarged {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+}
+.diagram-enlarged > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none !important;
+}
+.diagram-viewport.can-pan,
+.diagram-viewport.can-pan * {
+  cursor: grab;
+}
+.diagram-viewport.is-panning,
+.diagram-viewport.is-panning * {
+  cursor: grabbing;
+  user-select: none;
+}
+.diagram-stage-message {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  margin: 0;
+  color: var(--text-2);
+  font: 13px/1.8 var(--ui-font);
+}
+.diagram-map {
+  position: absolute;
+  right: 24px;
+  bottom: 62px;
+  z-index: 1;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--paper) 95%, transparent);
+  box-shadow: 0 5px 24px #00000012;
+  cursor: crosshair;
+  opacity: 0.72;
+  transition: opacity 180ms;
+}
+.diagram-map:hover,
+.diagram-map:focus-visible {
+  opacity: 1;
+}
+.diagram-map-art {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.diagram-map-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.diagram-map-window {
+  position: absolute;
+  box-sizing: border-box;
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+  pointer-events: none;
+}
+.diagram-stage-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+  padding: 14px 24px;
+  border-top: 1px solid var(--line);
+  color: var(--text-3);
+  font: 11px/1.6 var(--ui-font);
+}
+.diagram-stage-caption > span:first-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.diagram-stage-caption > span:last-child {
+  flex-shrink: 0;
+}
+.diagram-source-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  border-left: 1px solid var(--line);
+  background: color-mix(in srgb, var(--code-bg) 62%, var(--paper));
+}
+.diagram-source-panel > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  color: var(--text-2);
+  font: 11px/1.6 var(--ui-font);
+}
+.diagram-source-panel > div button {
+  display: flex;
+  padding: 4px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+}
+.diagram-source-panel > pre {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 0 18px 18px;
+  overflow: auto;
+  color: var(--text);
+  font:
+    12px/1.8 Consolas,
+    'Microsoft YaHei',
+    monospace;
+  white-space: pre;
+}
+.diagram-error {
+  flex-shrink: 0;
+  max-height: 32%;
+  margin: 0;
+  padding: 16px 18px;
+  overflow: auto;
+  border-top: 1px solid var(--line);
+  white-space: pre-wrap;
+  color: var(--text-2);
+  font: 11px/1.6 var(--ui-font);
+}
+.diagram-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 24px 4px;
+  border-top: 1px solid var(--line);
+}
+.diagram-controls > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.diagram-controls button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 9px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-2);
+  font: 12px/1.5 var(--ui-font);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.diagram-controls button:hover,
+.diagram-controls button[aria-pressed='true'] {
+  border-color: var(--line);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.diagram-controls input {
+  width: clamp(80px, 13vw, 170px);
+  accent-color: var(--accent);
+}
+.diagram-controls output {
+  min-width: 45px;
+  text-align: right;
+  color: var(--text-2);
+  font: 12px/1.5 var(--ui-font);
+  font-variant-numeric: tabular-nums;
+}
+.diagram-copy-status {
+  padding: 0 28px 6px;
+  text-align: right;
+  color: var(--accent);
+  font: 11px/1.5 var(--ui-font);
+}
+:root[data-skin='lucent'] .zmu-diagram {
+  border-color: #99beca85;
+  background: linear-gradient(115deg, #ffffff50, #cae5ef38 42%, #eee5fc40);
+  box-shadow:
+    inset 0 1px 0 #fff9,
+    inset 0 -1px 0 #6399b024,
+    0 8px 28px #5482a014;
+}
+:root[data-skin='lucent'] .diagram-dialog {
+  background: linear-gradient(125deg, #f1f8fbf5, #e9f3f9f8 58%, #f3eefaf5);
+  border-color: #b4d2de;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 34px 120px #19334d55,
+    0 0 70px #d7eaff24;
+}
+:root[data-skin='lucent'] .diagram-head::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  left: 3%;
+  right: 3%;
+  bottom: -1px;
+  background: linear-gradient(90deg, transparent, #73acba77, #f4cafa9c, #fff, transparent);
+  pointer-events: none;
+}
+:root[data-skin='lucent'] .diagram-viewport {
+  background:
+    radial-gradient(ellipse at 10% 0%, #ffffffb0, transparent 60%),
+    radial-gradient(ellipse at 95% 100%, #d9e0f467, transparent 64%);
+}
+:root[data-skin='astral'] .zmu-diagram {
+  border-color: #9ec4e642;
+  background: linear-gradient(130deg, #172a45c9, #162239c9);
+  box-shadow:
+    inset 0 1px 0 #cfeaff0d,
+    0 8px 28px #0002;
+}
+:root[data-skin='astral'] .diagram-dialog {
+  background: radial-gradient(ellipse at 25% 0%, #243d58, transparent 70%), #142238;
+  border-color: #aacbe24a;
+  box-shadow:
+    inset 0 1px 0 #d9efff26,
+    0 34px 120px #0009;
+}
+:root[data-skin='astral'] .diagram-viewport {
+  background:
+    radial-gradient(ellipse at 80% 90%, #4f456522, transparent 60%),
+    radial-gradient(circle at 22% 35%, #c8e3ff15 0 1px, transparent 1.5px),
+    radial-gradient(circle at 80% 24%, #c8e3ff15 0 1px, transparent 1.5px);
+  background-size:
+    auto,
+    113px 137px,
+    197px 173px;
+}
+:root:not([data-optics='full']) :is(.zmu-diagram, .diagram-dialog) svg * {
+  animation: none !important;
+  transition: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.zmu-diagram, .diagram-dialog) * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@media (max-width: 1000px) {
+  .diagram-dialog {
+    width: calc(100vw - 28px);
+    height: calc(100vh - 28px);
+  }
+  .diagram-head {
+    padding: 16px 20px;
+  }
+  .diagram-workspace.with-source {
+    grid-template-columns: minmax(0, 1fr) 260px;
+  }
+  .diagram-controls {
+    padding: 12px 14px 4px;
+    gap: 8px;
+  }
+  .diagram-controls button {
+    padding: 6px;
+    font-size: 11px;
+  }
+  .diagram-stage-caption {
+    padding: 12px 16px;
+    font-size: 10px;
+    gap: 10px;
+  }
+  .diagram-workspace.with-source .diagram-stage-caption > span:last-child {
+    display: none;
+  }
+}

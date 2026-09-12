@@ -1,0 +1,6 @@
+extends: ./electron-builder.ai.yml
+directories:
+  output: ../朱墨-AI细读/安装验证57
+extraMetadata:
+  name: zhumo-ai-preview
+  version: 2.0.0-preview.ai.57

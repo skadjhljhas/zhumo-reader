@@ -1,0 +1,11 @@
+extends: ./electron-builder.yml
+appId: com.zhumo.reader.chaosheng
+productName: ZhuMo Chaosheng
+directories:
+  output: ../朱墨-主题打磨/桌面候选04
+extraMetadata:
+  zhumoChannel: preview-theme
+  name: zhumo-chaosheng
+  version: 2.0.0-preview.chaosheng.4
+win:
+  executableName: ZhuMo-Tide

@@ -1,0 +1,105 @@
+/**
+ * 朱墨 ZhuMo —— 主题与设计变量。
+ *
+ * 「纸与墨」的东方书卷气：亮主题为暖纸米白 + 墨色正文，
+ * 暗主题为深灰墨底 + 浅暖字。一律避免纯黑纯白与冷蓝灰。
+ * 主题经 <html data-theme="light|dark"> 切换，auto 由 JS 解析后落同一属性，
+ * 故切换无闪烁。所有组件只消费变量，不写死颜色。
+ */
+
+:root {
+  /* 字号/版式变量（由设置面板实时写入，这里给默认值兜底） */
+  --reader-font-size: 17px;
+  --reader-line-height: 1.85;
+  --reader-width: 40; /* 每行字数（em 倍数） */
+
+  /* 层级阶梯（注释）：竖线宽度 / 字号 / 缩进 */
+  --note-l1-size: 0.95em;
+  --note-l2-size: 0.87em;
+  --note-l3-size: 0.8em;
+  --note-l4-size: 0.75em;
+
+  /* 布局常量 */
+  --toolbar-h: 52px;
+  --statusbar-h: 28px;
+  --sidebar-w: 360px;
+  --toc-w: 268px;
+
+  /* 动效 */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.21, 1);
+  --dur-fast: 160ms;
+  --dur-med: 280ms;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f7f4ee;
+  --bg-elevated: #fcfaf5;
+  --sidebar-bg: #f1ede2;
+  --drawer-bg: #f1ede2;
+  --card-bg: #fbf8f1;
+  --text: #2a2620;
+  --text-2: #6f6657;
+  --text-3: #a2978a;
+  --line: #e5dfd2;
+  --line-strong: #d6cdbb;
+  --accent: #b23a2f; /* 朱砂 */
+  --accent-strong: #9c2f26;
+  --accent-soft: rgba(178, 58, 47, 0.09);
+  --accent-contrast: #faf6ef;
+  --hover-bg: rgba(42, 38, 32, 0.05);
+  --active-bg: rgba(42, 38, 32, 0.09);
+  --quote-border: #d8cfbc;
+  --code-bg: #efe9db;
+  --mark-bg: rgba(178, 58, 47, 0.16);
+  --shadow-soft: 0 10px 34px rgba(62, 51, 35, 0.14);
+  --shadow-pop: 0 6px 24px rgba(62, 51, 35, 0.12);
+  --selection: rgba(178, 58, 47, 0.16);
+  --scrollbar-thumb: rgba(42, 38, 32, 0.18);
+  --scrollbar-thumb-hover: rgba(42, 38, 32, 0.32);
+  --skeleton: rgba(42, 38, 32, 0.07);
+
+  /* 注释类型色（耐看低饱和） */
+  --note-translator: #4a6b8a; /* 黛蓝 */
+  --note-editor: #9a6b3f; /* 赭石 */
+  --note-textual: #5a7a5c; /* 松绿 */
+  --note-original: #b23a2f; /* 朱砂 */
+  --note-commentary: #7a5f8a; /* 紫草 */
+  --note-plain: #857c6d; /* 灰墨 */
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #1e1c19;
+  --bg-elevated: #262320;
+  --sidebar-bg: #211f1b;
+  --drawer-bg: #211f1b;
+  --card-bg: #282520;
+  --text: #d8d2c8;
+  --text-2: #9c9385;
+  --text-3: #6e675c;
+  --line: #35312a;
+  --line-strong: #474237;
+  --accent: #d4695a;
+  --accent-strong: #e07a6b;
+  --accent-soft: rgba(212, 105, 90, 0.14);
+  --accent-contrast: #241f1c;
+  --hover-bg: rgba(216, 210, 200, 0.06);
+  --active-bg: rgba(216, 210, 200, 0.11);
+  --quote-border: #474237;
+  --code-bg: #2b2823;
+  --mark-bg: rgba(212, 105, 90, 0.26);
+  --shadow-soft: 0 12px 38px rgba(0, 0, 0, 0.5);
+  --shadow-pop: 0 8px 26px rgba(0, 0, 0, 0.42);
+  --selection: rgba(212, 105, 90, 0.3);
+  --scrollbar-thumb: rgba(216, 210, 200, 0.16);
+  --scrollbar-thumb-hover: rgba(216, 210, 200, 0.3);
+  --skeleton: rgba(216, 210, 200, 0.07);
+
+  --note-translator: #8ba7c4;
+  --note-editor: #c7a172;
+  --note-textual: #8fae91;
+  --note-original: #d4695a;
+  --note-commentary: #b096bd;
+  --note-plain: #a29a8b;
+}

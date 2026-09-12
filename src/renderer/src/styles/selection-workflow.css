@@ -1,0 +1,110 @@
+/* Selection actions are global preferences; the surface contains only writing and/or explanation. */
+::highlight(zhumo-selected-passage) {
+  background-color: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+.reading-selection.selection-workflow {
+  width: min(410px, calc(100vw - 24px));
+  max-height: min(530px, calc(100dvh - 24px));
+  padding: 16px 18px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: auto;
+  background: color-mix(in srgb, var(--bg-elevated) 94%, transparent);
+  backdrop-filter: blur(22px);
+  box-shadow: 0 12px 50px #19394a1c;
+  color: var(--text);
+  user-select: text;
+}
+.reading-selection.selection-workflow::before {
+  display: none;
+}
+.selection-workflow .selection-dismiss {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  font-size: 21px;
+  line-height: 1;
+  padding: 3px 5px;
+  background: none;
+  border: 0;
+  opacity: 0.65;
+}
+.quick-note-section > label,
+.selection-section-label {
+  display: block;
+  color: var(--text-2);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding-right: 26px;
+  margin-bottom: 10px;
+}
+.selection-workflow textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 82px;
+  max-height: 210px;
+  resize: vertical;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text);
+  outline: none;
+  font: 16px/1.85 var(--font-reading, serif);
+  padding: 0;
+}
+.selection-workflow textarea::placeholder {
+  color: var(--text-2);
+  opacity: 0.55;
+}
+.quick-note-section > small {
+  font-size: 10px;
+  color: var(--text-2);
+  opacity: 0.7;
+}
+.quick-note-section + .automatic-explanation {
+  border-top: 1px solid var(--line);
+  margin-top: 14px;
+  padding-top: 13px;
+}
+.auto-explanation-content {
+  font: 14px/1.85 var(--font-reading, serif);
+  max-height: 300px;
+  overflow: auto;
+  overflow-wrap: anywhere;
+}
+.auto-explanation-content p {
+  margin: 0 0 0.75em;
+}
+.auto-explanation-content pre {
+  white-space: pre-wrap;
+}
+.selection-workflow .selection-error,
+.selection-waiting {
+  font-size: 12px;
+  line-height: 1.65;
+  margin: 8px 0 0;
+  color: var(--text-2);
+}
+.selection-preferences {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 0 0 14px;
+  margin: 0 0 16px;
+}
+.selection-preferences legend {
+  font-size: 12px;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.selection-preferences > label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 0;
+  color: var(--text-2);
+  font-size: 13px;
+}
+.selection-preferences input {
+  accent-color: var(--accent);
+}

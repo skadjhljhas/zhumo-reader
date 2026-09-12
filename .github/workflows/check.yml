@@ -1,0 +1,50 @@
+name: Windows reader checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  reader:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm.cmd ci
+      - run: npm.cmd run lint
+      - name: Unit checks, including native file operations
+        run: npm.cmd test -- --maxWorkers=2
+      - run: npm.cmd run build
+      - name: Hidden reader workflows with private data and local model fixtures
+        run: >-
+          npm.cmd run test:e2e --
+          tests/e2e/background.spec.ts
+          tests/e2e/documents.spec.ts
+          tests/e2e/manuscript-directory.spec.ts
+          tests/e2e/selection.spec.ts
+          tests/e2e/formulas.spec.ts
+          tests/e2e/glyph-mask-layout.spec.ts
+      - name: Keep desktop failure evidence
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: reader-failure-${{ github.run_id }}
+          path: |
+            work/e2e-background-results.json
+            work/e2e-background-results/**
+          retention-days: 7
+          if-no-files-found: ignore

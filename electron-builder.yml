@@ -1,0 +1,44 @@
+appId: com.zhumo.reader.preview
+productName: ZhuMo 2.0 Preview
+directories:
+  buildResources: build
+  output: ../朱墨2.0预览版
+# 允许清单：只打包运行所需文件（比否定清单更不易漏带/多带）。
+# node_modules 生产依赖（@electron-toolkit/utils）由 electron-builder 依据
+# package.json dependencies 自动收集，无需在此列出。
+files:
+  - out/**
+  - package.json
+  - resources/**
+  - LICENSE
+  - THIRD-PARTY_NOTICES.md
+  - docs/**
+  # 演示书不进发行包（约 1.5MB）；4175 静态预览与浏览器验证伺服 out/ 目录，不受影响
+  - '!out/renderer/demo/**'
+asarUnpack:
+  - resources/**
+  - out/main/native/**
+# 预览版不注册文件关联；用户数据与已安装的稳定版隔离。
+win:
+  executableName: ZhuMo2
+  # 所有图标来自原版朱字 resources/icon-original.png，经 npm run build:icons 生成。
+  icon: build/icon.ico
+  # zip target 无专属配置段，其产物名继承自这里（zhumo-x.y.z-win-x64.zip）
+  artifactName: ${name}-${version}-${os}-${arch}.${ext}
+  target:
+    - nsis
+    - portable
+    - zip
+nsis:
+  artifactName: ${name}-${version}-setup.${ext}
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  perMachine: false
+  shortcutName: 朱墨 2.0 预览
+  uninstallDisplayName: 朱墨 2.0 Preview
+  createDesktopShortcut: always
+portable:
+  artifactName: ${name}-${version}-portable.${ext}
+npmRebuild: false
+afterSign: scripts/program-manifest-after-sign.cjs
+beforePack: scripts/require-program-manifest-stage.cjs

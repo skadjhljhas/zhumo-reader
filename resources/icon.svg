@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="朱墨：一枚朱印，与它落在墨海上的光">
+  <defs>
+    <linearGradient id="ink" x1="0" y1="0" x2=".18" y2="1"><stop offset="0" stop-color="#0b1730"/><stop offset=".55" stop-color="#11284a"/><stop offset="1" stop-color="#1b4568"/></linearGradient>
+    <radialGradient id="air" cx=".80" cy=".06" r=".95"><stop stop-color="#a7cdff" stop-opacity=".22"/><stop offset=".5" stop-color="#5c8fc9" stop-opacity=".05"/><stop offset="1" stop-color="#1b4568" stop-opacity="0"/></radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d6e7ff" stop-opacity=".45"/><stop offset=".5" stop-color="#7f9fc8" stop-opacity=".10"/><stop offset="1" stop-color="#9ab6dc" stop-opacity=".30"/></linearGradient>
+    <linearGradient id="seal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff9d7c"/><stop offset=".55" stop-color="#e9553f"/><stop offset="1" stop-color="#c0372f"/></linearGradient>
+    <linearGradient id="column" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe3ba" stop-opacity=".95"/><stop offset=".22" stop-color="#f7ead8" stop-opacity=".80"/><stop offset=".55" stop-color="#d8e9ff" stop-opacity=".46"/><stop offset="1" stop-color="#bcd6ff" stop-opacity="0"/></linearGradient>
+    <filter id="tiny" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5"/></filter>
+    <filter id="soft" x="-100%" y="-30%" width="300%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
+    <filter id="wide" x="-100%" y="-50%" width="300%" height="200%"><feGaussianBlur stdDeviation="22"/></filter>
+    <filter id="vast" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="46"/></filter>
+    <clipPath id="tile"><rect x="24" y="24" width="464" height="464" rx="112"/></clipPath>
+  </defs>
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#ink)"/>
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#air)"/>
+  <g clip-path="url(#tile)">
+    <ellipse cx="256" cy="330" rx="125" ry="175" fill="#8fb8ff" opacity=".20" filter="url(#vast)"/>
+    <path d="M232 214 C226 280 214 350 198 472 L314 472 C298 350 286 280 280 214 Z" fill="url(#column)" opacity=".55" filter="url(#wide)"/>
+    <path d="M256 216 C262 262 246 300 252 340 C258 380 246 420 250 472" fill="none" stroke="url(#column)" stroke-width="22" stroke-linecap="round" filter="url(#soft)"/>
+    <path d="M256 216 C262 262 246 300 252 340 C258 380 246 420 250 472" fill="none" stroke="#fff6e6" stroke-width="5" stroke-linecap="round" opacity=".55" filter="url(#tiny)"/>
+    <ellipse cx="253" cy="300" rx="58" ry="4" fill="#ffffff" opacity=".28" filter="url(#soft)"/>
+    <ellipse cx="250" cy="372" rx="80" ry="4.5" fill="#dbeaff" opacity=".20" filter="url(#soft)"/>
+    <ellipse cx="248" cy="430" rx="104" ry="5" fill="#c8ddff" opacity=".12" filter="url(#soft)"/>
+  </g>
+  <rect x="212" y="120" width="88" height="88" rx="12" fill="url(#seal)"/>
+  <rect x="219" y="127" width="74" height="74" rx="8" fill="none" stroke="#ffd2c2" stroke-opacity=".45" stroke-width="2.5"/>
+  <rect x="25.5" y="25.5" width="461" height="461" rx="110.5" fill="none" stroke="url(#rim)" stroke-width="3"/>
+</svg>

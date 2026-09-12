@@ -1,0 +1,109 @@
+/* Echo surfaces for the two flagship themes. Light is drawn by canvases; CSS keeps text and layout. */
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .tidal-memory-rail {
+  color: var(--text-2);
+  border-color: var(--line);
+}
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .tidal-memory-rail :is(small, p, b) {
+  color: var(--text-2);
+}
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .tidal-memory-rail > p {
+  font-size: 10.5px;
+  line-height: 1.7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* Recent words are text, so they may stay solid; they need no frame or underline. */
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .tidal-memory-words {
+  gap: 12px;
+  padding-top: 2px;
+}
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .tidal-memory-words button {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: var(--text-2);
+  padding: 3px 0;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  opacity: 0.78;
+  transition:
+    opacity 0.6s,
+    color 0.6s;
+}
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .tidal-memory-words button:first-child,
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .tidal-memory-words button:hover {
+  color: var(--text);
+  opacity: 1;
+}
+/* The field wants room in the ledger; the archive list below it is unchanged. */
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .tidal-memory-index > .tidal-memory-chart {
+  width: calc(100% - 24px);
+  height: 196px;
+  margin: 14px 12px 0;
+}
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .tidal-chart-caption {
+  margin-top: 6px;
+}
+:root[data-skin='lucent'] .tidal-memory-dialog {
+  background: linear-gradient(125deg, #eff6f8f5, #e8edf7f5);
+  color: var(--text);
+  border-color: #c3d7e6;
+  box-shadow: 0 12px 80px #35577926;
+}
+:root[data-skin='lucent']
+  .tidal-memory-dialog
+  :is(
+    .tidal-place,
+    .tidal-place-list,
+    .tidal-memory-head,
+    .tidal-memory-index,
+    .tidal-memory-footer,
+    .tidal-place-kicker,
+    .tidal-place-note,
+    .tidal-place-context
+  ) {
+  color: var(--text-2);
+  border-color: var(--line);
+}
+:root[data-skin='lucent']
+  .tidal-memory-dialog
+  :is(.tidal-place-word, .tidal-place-title, .tidal-chart-caption) {
+  color: var(--text);
+}
+/* Lucent ledger: light beyond the frame keeps arriving; no fixed diagonal stripe. */
+.echo-prism-afterlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background:
+    radial-gradient(ellipse 60% 45% at 92% 4%, #dff0ff99, transparent 70%),
+    radial-gradient(ellipse 42% 30% at 18% 92%, #e8def766, transparent 70%),
+    linear-gradient(118deg, transparent 30%, #ffffff70 41%, #cdc4ea22 45%, transparent 56%);
+  background-size:
+    200% 200%,
+    200% 200%,
+    260% 100%;
+  background-position:
+    0% 0%,
+    100% 100%,
+    0% 50%;
+  animation: echo-prism-drift 46s ease-in-out infinite alternate;
+}
+@keyframes echo-prism-drift {
+  to {
+    background-position:
+      30% 20%,
+      70% 80%,
+      100% 50%;
+  }
+}
+:root:not([data-optics='full']) .echo-prism-afterlight {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .echo-prism-afterlight {
+    animation: none;
+  }
+}

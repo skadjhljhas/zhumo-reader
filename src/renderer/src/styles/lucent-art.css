@@ -1,0 +1,112 @@
+/* Lucent is a continuous illuminated reading space, not a collection of glass objects. */
+:root[data-skin='lucent'] {
+  --paper: #f1f7f933;
+  --sidebar-bg: #d9e7ee25;
+  --drawer-bg: #dce7ef20;
+  --card-bg: #f4faff30;
+  --text: #25374a;
+  --text-2: #3e5c6c;
+  --text-3: #385367;
+  --accent: #2e5872;
+  --line: #8daebe29;
+  --line-strong: #7694a563;
+  --shadow-soft: 0 0 48px #b5dce21a;
+  --shadow-pop: 0 0 90px #41687d20;
+  --radius: 5px;
+}
+:root[data-skin='lucent'] .reading-atmosphere {
+  background:
+    linear-gradient(125deg, #d0dde7, #e9f5f8 60%, #f7fbf7),
+    radial-gradient(ellipse at 90% -15%, #fffef5, transparent 70%);
+}
+:root[data-skin='lucent'] .studio-frame :is(.app-center, .reader-scroll, .reader-column) {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+:root[data-skin='lucent'] .studio-frame :is(.studio-toolbar, .statusbar, .studio-rail) {
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: blur(8px);
+}
+:root[data-skin='lucent'] .studio-frame :is(.toc-drawer, .notes-sidebar) {
+  background: linear-gradient(180deg, #eef6f815, #dcecf22b);
+  border-color: #91acbb20;
+  box-shadow: none;
+  backdrop-filter: blur(10px);
+}
+:root[data-skin='lucent'] .studio-frame .note-card {
+  background: linear-gradient(108deg, #f8fcff45, #eff9fb14);
+  border: 0;
+  border-left: 1px solid #82a9b343;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: blur(9px);
+}
+:root[data-skin='lucent'] .studio-frame .note-card:is(.is-reading, .is-focused) {
+  border-left-color: #658da3;
+  background: linear-gradient(108deg, #f6fcff78, #edf8fb20);
+  box-shadow: 0 0 38px #c4e4ec30;
+}
+:root[data-skin='lucent'] .studio-frame :is(.welcome-copy h1, .overture-copy h1, .section-body h2) {
+  animation: none;
+  background: none;
+  color: #274a60;
+  -webkit-text-fill-color: currentColor;
+  text-shadow: none;
+}
+:root[data-skin='lucent'] .studio-frame .section-body p {
+  text-shadow: 0 0.4px 0.6px #ffffff40;
+}
+:root[data-skin='lucent'] .studio-frame .section-body blockquote {
+  background: linear-gradient(90deg, #f3fbfe34, transparent);
+  border: 0;
+  border-left: 1px solid #779aa46b;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+:root[data-skin='lucent'] .studio-frame .section-body blockquote p {
+  color: #3e5c6c;
+}
+:root[data-skin='lucent'] .studio-frame .document-overture {
+  border-bottom-color: transparent;
+}
+:root[data-skin='lucent'] .theme-art {
+  visibility: hidden;
+}
+:root[data-skin='lucent'] :is(.space-latitude, .reading-spacetime) {
+  display: none;
+}
+:root[data-skin='lucent'] :is(.recent-empty, .recent-book, .welcome-lower) {
+  background: linear-gradient(105deg, #f8fcff32, transparent);
+  border-color: #a8c7d529;
+  border-radius: 4px;
+  box-shadow: none;
+  backdrop-filter: blur(7px);
+}
+:root[data-skin='lucent'] :is(.peek-shell, .comparison-dialog, .search-dialog, .atlas-dialog) {
+  background: linear-gradient(118deg, #eff7faf5, #f7faf7f2);
+  border: 1px solid #ffffff63;
+  border-radius: 7px;
+  box-shadow: 0 0 90px #41687d25;
+  backdrop-filter: blur(26px);
+}
+:root[data-skin='lucent'] :is(.comparison-page, .comparison-reading, .comparison-gutter) {
+  background: transparent;
+  box-shadow: none;
+  border-color: #8daebe30;
+}
+:root[data-skin='lucent'] :is(.source-editor, .draft-preview, .note-writer) {
+  box-shadow: none;
+  border-color: #8daebe30;
+}
+.theme-mini.lucent::before {
+  border: 0;
+  clip-path: none;
+  transform: none;
+  box-shadow: none;
+  background: linear-gradient(125deg, transparent, #f6ffff90, transparent);
+  filter: blur(9px);
+}

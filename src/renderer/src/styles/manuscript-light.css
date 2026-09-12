@@ -1,0 +1,193 @@
+/* The title keeps the ink. Its companion is an open, document-dependent light field. */
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .theme-art.has-manuscript-light {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .theme-art > .manuscript-light {
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+.manuscript-light-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.manuscript-light {
+  opacity: 1;
+  transition: opacity 500ms ease;
+}
+.manuscript-light-canvas[data-ready='fallback'] {
+  visibility: hidden;
+}
+:root[data-optics='off'] .manuscript-light {
+  visibility: hidden;
+}
+.manuscript-light-fallback {
+  --fallback-blue: #619bbd;
+  --fallback-white: #c1d6e7;
+  --fallback-violet: #8686b7;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+:root[data-skin='chaosheng'] .manuscript-light-fallback {
+  --fallback-blue: #9ec4f2;
+  --fallback-white: #dce9f8;
+  --fallback-violet: #b0c0e7;
+}
+.fallback-aura {
+  filter: blur(4px);
+}
+:root[data-skin='lucent'] .thought-thread-line {
+  stroke-dasharray: 18 180;
+  stroke-linecap: round;
+  stroke-width: 0.7;
+  opacity: 0.4;
+  animation: lucent-reference-light 2.8s linear infinite;
+}
+:root[data-skin='lucent'] .thought-thread-glow {
+  stroke-width: 8;
+  opacity: 0.055;
+  filter: blur(5px);
+}
+:root[data-skin='chaosheng'] .tidal-tether path {
+  stroke-dasharray: 32 220;
+  stroke-linecap: round;
+  opacity: 0.62;
+  animation: tide-reference-light 4s linear infinite;
+}
+@keyframes lucent-reference-light {
+  to {
+    stroke-dashoffset: -198;
+  }
+}
+@keyframes tide-reference-light {
+  to {
+    stroke-dashoffset: -252;
+  }
+}
+.manuscript-light[data-measured='false'] {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .manuscript-light {
+    transition: none;
+  }
+}
+:root:not([data-optics='full']) .manuscript-light {
+  transition: none;
+}
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .studio-frame .note-type-badge {
+  color: var(--text-2);
+}
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .studio-frame .note-type-badge::before {
+  background: var(--note-color, var(--note-plain));
+}
+
+/* Open light needs no reserved solid illustration column. Align the writing,
+   and make the short-window opening lead naturally into the first paragraph. */
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .studio-frame .document-overture {
+  min-height: 280px;
+  padding: 36px 0 30px;
+  margin-bottom: 30px;
+}
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .studio-frame .overture-copy {
+  max-width: 90%;
+}
+:root[data-skin='chaosheng'] .studio-frame .section-body {
+  padding: 0;
+}
+:root[data-skin='chaosheng'] .studio-frame .section-body h2::before {
+  content: none;
+}
+:root:is([data-skin='lucent'], [data-skin='chaosheng'])
+  .studio-frame
+  .document-overture
+  .theme-art {
+  top: 28px;
+}
+@media (max-width: 820px) {
+  :root:is([data-skin='lucent'], [data-skin='chaosheng']) .studio-frame .app-main > .notes-sidebar {
+    background: var(--bg-elevated);
+    max-width: min(85vw, calc(100% - 16px));
+    backdrop-filter: none;
+  }
+}
+@media (max-width: 760px), (max-height: 720px) {
+  :root:is([data-skin='lucent'], [data-skin='chaosheng']) .studio-frame .reader-column {
+    padding-top: 22px;
+  }
+  :root:is([data-skin='lucent'], [data-skin='chaosheng']) .studio-frame .document-overture {
+    min-height: 210px;
+    padding-top: 22px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+  }
+  :root:is([data-skin='lucent'], [data-skin='chaosheng']) .studio-frame .document-overture h1 {
+    margin-top: 18px;
+    line-height: 1.5;
+  }
+  :root:is([data-skin='lucent'], [data-skin='chaosheng'])
+    .studio-frame
+    .document-overture
+    .theme-art {
+    top: 6px;
+    height: 175px;
+  }
+}
+@media (max-width: 760px) {
+  :root:is([data-skin='lucent'], [data-skin='chaosheng']) .studio-frame .reader-column {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  :root:is([data-skin='lucent'], [data-skin='chaosheng']) .studio-frame .document-overture h1 {
+    font-size: clamp(26px, 4.9vw, 32px);
+  }
+}
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .document-overture .has-manuscript-light {
+  width: 48%;
+  height: 235px;
+  top: 40px;
+  right: -25px;
+  z-index: 0;
+}
+:root:is([data-skin='lucent'], [data-skin='chaosheng']) .overture-copy {
+  position: relative;
+  z-index: 1;
+}
+:root[data-optics='off'] .manuscript-light-canvas {
+  visibility: hidden;
+}
+
+/* Light passes behind DOM ink, including character counters, spacing and punctuation.
+   No line rectangles, paragraph masks, blur on prose, or opaque reading-column wash. */
+:root[data-skin='chaosheng'] .studio-frame :is(.reader-column, .section-body) {
+  background: transparent;
+  box-shadow: none;
+  border-color: transparent;
+  backdrop-filter: none;
+}
+:root[data-skin='chaosheng'] .section-body blockquote {
+  background: linear-gradient(105deg, #f6f9e82b, transparent);
+  box-shadow: none;
+}
+:root[data-skin='lucent'] .studio-frame .section-body p {
+  text-shadow: none;
+}
+:root[data-skin='chaosheng'] .chaosheng-atmosphere {
+  background: linear-gradient(155deg, #e4ede6, #f5f5e9 48%, #cce1d9);
+}
+@media (max-width: 760px) {
+  :root:is([data-skin='lucent'], [data-skin='chaosheng']) .document-overture .has-manuscript-light {
+    right: -8px;
+    width: 50%;
+    height: 190px;
+    opacity: 0.7;
+  }
+}

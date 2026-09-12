@@ -1,0 +1,196 @@
+/* Geometry carries relations; chromatic families remain stable with motion paused. */
+.syntax-meaning-field {
+  --grammar-color: #3a8ec4;
+  --grammar-glint: #e3faff;
+}
+.syntax-meaning-field [data-family='argument'] {
+  --grammar-color: #448ec5;
+  --grammar-glint: #b1e6fb;
+}
+.syntax-meaning-field [data-family='negation'] {
+  --grammar-color: #b24488;
+  --grammar-glint: #f6cbe5;
+}
+.syntax-meaning-field [data-family='quantifier'] {
+  --grammar-color: #426bc6;
+  --grammar-glint: #ccdeff;
+}
+.syntax-meaning-field [data-family='modal'] {
+  --grammar-color: #7d62b7;
+  --grammar-glint: #e5d8fd;
+}
+.syntax-meaning-field [data-family='perspective'] {
+  --grammar-color: #a06cad;
+  --grammar-glint: #f0d0e6;
+}
+.syntax-meaning-field [data-family='reference'] {
+  --grammar-color: #3688ad;
+  --grammar-glint: #b4f0f5;
+}
+.syntax-meaning-field [data-family='control'] {
+  --grammar-color: #c39b4e;
+  --grammar-glint: #fff8e4;
+}
+.syntax-meaning-field [data-family='focus'] {
+  --grammar-color: #b9694b;
+  --grammar-glint: #f8d0ac;
+}
+.syntax-meaning-field [data-family='ellipsis'] {
+  --grammar-color: #568fa6;
+  --grammar-glint: #b7dce7;
+}
+.syntax-meaning-field [data-family='contrast'] {
+  --grammar-color: #ae8453;
+  --grammar-glint: #f8e5be;
+}
+.syntax-meaning-field .syntax-relation-band {
+  --syntax-ray-cool: var(--grammar-color);
+  --syntax-ray-core: var(--grammar-glint);
+  --syntax-ray-warm: var(--grammar-color);
+  opacity: calc(var(--syntax-strength) * 0.95);
+}
+.syntax-meaning-field .syntax-relation-band[data-governor='true'] {
+  opacity: var(--syntax-strength);
+}
+.syntax-meaning-field .syntax-relation-band.is-active {
+  opacity: var(--syntax-strength);
+}
+.syntax-meaning-field .syntax-relation-band[data-clause='true'][data-governor='false'] {
+  opacity: calc(var(--syntax-strength) * 0.12);
+}
+.syntax-meaning-field .syntax-relation-band .syntax-veil-halo {
+  filter: blur(4px);
+  opacity: 0.72;
+}
+.syntax-meaning-field .syntax-relation-band .syntax-veil-refraction {
+  filter: blur(1.8px);
+  opacity: 0.55;
+}
+.syntax-semantic-relation {
+  opacity: var(--syntax-strength);
+}
+.syntax-semantic-relation path {
+  stroke: none;
+  pointer-events: none;
+}
+.syntax-semantic-halo {
+  filter: blur(4px);
+  opacity: 0.95;
+}
+.syntax-semantic-surface {
+  filter: blur(0.8px);
+  opacity: 0.8;
+}
+.syntax-semantic-caustic {
+  filter: blur(0.5px);
+  opacity: 0.8;
+}
+.syntax-semantic-relation [data-route='margin'] .syntax-semantic-surface {
+  opacity: 0.34;
+  filter: blur(2.8px);
+}
+.syntax-semantic-relation [data-route='margin'] .syntax-semantic-halo {
+  opacity: 1;
+  filter: blur(6px);
+}
+.syntax-semantic-relation [data-route='margin'] .syntax-semantic-caustic {
+  opacity: 0.38;
+  filter: blur(0.9px);
+}
+.syntax-semantic-relation :is([data-part='entry'], [data-part='exit']) .syntax-semantic-surface {
+  opacity: 0.26;
+  filter: blur(1.8px);
+}
+.syntax-semantic-relation :is([data-part='entry'], [data-part='exit']) .syntax-semantic-halo {
+  opacity: 0.5;
+  filter: blur(3px);
+}
+.syntax-semantic-relation :is([data-part='entry'], [data-part='exit']) .syntax-semantic-caustic {
+  opacity: 0.22;
+  filter: blur(0.9px);
+}
+.syntax-semantic-breath {
+  animation: syntax-meaning-breath 13s ease-in-out infinite alternate;
+  animation-delay: var(--syntax-phase);
+}
+@keyframes syntax-meaning-breath {
+  from {
+    opacity: 0.76;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.syntax-semantic-relation[data-evidence='possible'] .syntax-semantic-caustic {
+  opacity: 0.42;
+}
+.syntax-semantic-relation[data-evidence='unresolved'] .syntax-semantic-surface {
+  opacity: 0.35;
+  filter: blur(2.6px);
+}
+.syntax-semantic-relation[data-evidence='unresolved'] .syntax-semantic-caustic {
+  opacity: 0;
+}
+:root:is([data-skin='chaosheng'], [data-skin='astral'], [data-skin='nocturne'])
+  .syntax-meaning-field
+  [data-family='argument'] {
+  --grammar-color: #71c4ed;
+  --grammar-glint: #f1f4df;
+}
+:root:is([data-skin='chaosheng'], [data-skin='astral'], [data-skin='nocturne'])
+  .syntax-meaning-field
+  [data-family='negation'] {
+  --grammar-color: #d49bd3;
+  --grammar-glint: #fff0ff;
+}
+:root:is([data-skin='chaosheng'], [data-skin='astral'], [data-skin='nocturne'])
+  .syntax-meaning-field
+  [data-family='control'] {
+  --grammar-color: #e8bb70;
+  --grammar-glint: #fff5ce;
+}
+.syntax-veil:is([data-motion='quiet'], [data-motion='off']) .syntax-semantic-breath {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .syntax-semantic-breath {
+    animation: none !important;
+  }
+}
+.syntax-meaning-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-size: 11px;
+  line-height: 1.9;
+  color: var(--text-2);
+  margin: 16px 0;
+}
+.syntax-meaning-key span {
+  position: relative;
+  padding-left: 20px;
+}
+.syntax-meaning-key span::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  left: 0;
+  top: 9px;
+  background: linear-gradient(90deg, transparent, var(--key-light), transparent);
+  box-shadow: 0 0 5px var(--key-light);
+  filter: blur(0.4px);
+}
+.syntax-meaning-cue {
+  color: var(--text-2);
+  max-width: min(420px, 32vw);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+}
+@media (max-width: 1000px) {
+  .syntax-meaning-cue {
+    max-width: 25vw;
+  }
+}

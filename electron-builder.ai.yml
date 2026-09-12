@@ -1,0 +1,11 @@
+extends: ./electron-builder.yml
+appId: com.zhumo.reader.ai-preview
+productName: ZhuMo AI Reading
+directories:
+  output: ../朱墨-AI细读/桌面候选67
+extraMetadata:
+  zhumoChannel: preview-ai
+  name: zhumo-ai-preview
+  version: 2.0.0-preview.ai.67
+win:
+  executableName: ZhuMo-AI
